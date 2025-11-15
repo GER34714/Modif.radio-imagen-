@@ -91,36 +91,24 @@ body{
   text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 
-/* CONTADOR TIPO CARTEL DIGITAL */
+/* Contador */
 .oyentes-box{
-  margin:20px auto 25px;
-  color:#00ffff;
-  font-size:1.1em;
-}
-
-.led-container{
-  width:260px;
-  margin:8px auto;
-  overflow:hidden;
-  border-radius:10px;
-  background:#001416;
-  box-shadow:0 0 15px #00ffff;
-  padding:8px 0;
-}
-
-.led-scroll{
-  display:inline-block;
-  white-space:nowrap;
-  font-size:1.8em;
+  margin:10px auto 25px;
+  font-size:1.6em;
   font-weight:600;
   color:#00ffff;
-  animation:scrollLed 7s linear infinite;
   text-shadow:0 0 12px #00ffff;
+  font-family:'Poppins',sans-serif;
 }
-
-@keyframes scrollLed{
-  0%{transform:translateX(110%);}
-  100%{transform:translateX(-110%);}
+.display{
+  background:#001b1b;
+  color:#00ffff;
+  padding:10px 25px;
+  border-radius:12px;
+  box-shadow:0 0 15px #00ffff;
+  display:inline-block;
+  font-size:1.4em;
+  letter-spacing:2px;
 }
 
 /* Botón */
@@ -185,7 +173,7 @@ body{
   box-shadow:0 0 20px #ff00ff;
 }
 
-/* PUBLICIDAD RADIAL TÍO SERGIO (C2) */
+/* PUBLICIDAD TÍO SERGIO (C2) */
 .ad-box{
   max-width:630px;
   margin:50px auto;
@@ -199,15 +187,16 @@ body{
   0%,100%{box-shadow:0 0 25px #ff00ff;}
   50%{box-shadow:0 0 15px #00ffff;}
 }
+.ad-title{
+  font-size:1.9em;
+  font-weight:600;
+  color:#ff00ff;
+  margin-bottom:10px;
+}
 .ad-mic{
   font-size:3em;
   margin-bottom:10px;
   text-shadow:0 0 20px #00ffff;
-}
-.ad-title{
-  font-size:1.9em;
-  color:#ff00ff;
-  margin-bottom:10px;
 }
 .ad-desc{
   color:#eaeaea;
@@ -227,35 +216,63 @@ body{
   box-shadow:0 0 15px #00ffff;
 }
 
-/* ESPACIO PUBLICITARIO NUEVO */
-.publicidad-box{
-  max-width:650px;
+/* Publicidad original */
+.promo-box{
+  max-width:600px;
   margin:60px auto;
-  padding:35px 25px;
-  background:rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.8);
   border-radius:20px;
-  box-shadow:0 0 20px #00ffff;
+  padding:45px 25px;
+  box-shadow:0 0 20px rgba(255,0,255,0.4);
 }
-
-.publicidad-box h2{
-  font-size:2em;
-  color:#00ffff;
+.promo-box h2{
+  color:#ff00ff;
+  font-size:1.9em;
   margin-bottom:15px;
-  text-shadow:0 0 15px #00ffff;
+  text-shadow:0 0 10px rgba(255,0,255,0.4);
 }
-
-.publicidad-item{
-  margin-top:25px;
-  padding:20px;
-  border:1px dashed #00ffff;
-  border-radius:15px;
+.promo-box h2 span{
+  display:block;
+  font-family:'Amadeus',sans-serif;
+  font-size:1.2em;
+  color:#00ffff;
+  text-shadow:0 0 12px #00ffff,0 0 18px #ff00ff;
+}
+.promo-box p{
+  color:#eaeaea;
+  font-size:1em;
+  line-height:1.7em;
+  margin-bottom:25px;
+  text-shadow:0 0 5px rgba(0,255,255,0.3);
+  white-space:pre-line;
+}
+.promo-btn,.share-btn{
+  display:inline-block;
+  border:none;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:1.1em;
+  padding:12px 35px;
+  transition:.3s;
+}
+.promo-btn{
+  background:linear-gradient(135deg,#25D366,#128C7E);
   color:#fff;
-  opacity:0.7;
-  font-style:italic;
+  box-shadow:0 0 15px #25D366;
 }
-
-.publicidad-item small{
-  color:#bbb;
+.promo-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #25D366;
+}
+.share-btn{
+  background:linear-gradient(135deg,#ff9900,#ff0080);
+  color:#fff;
+  margin-top:12px;
+  box-shadow:0 0 15px #ff00ff;
+}
+.share-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ff00ff;
 }
 
 /* Footer */
@@ -270,6 +287,17 @@ body{
 }
 .footer a:hover{text-decoration:underline;}
 
+/* Responsive */
+@media(max-width:600px){
+  body{padding:10px;}
+  .radio-box,.promo-box,.ad-box{padding:30px 20px;}
+  .radio-title{font-size:2em;}
+  .radio-logo{width:150px;}
+  .player-container{width:100px;height:85px;}
+  .player-container iframe{transform:translateY(-190px);scale:1.3;}
+  .play-btn{font-size:1.1em;padding:12px 35px;}
+  .promo-box h2{font-size:1.6em;}
+}
 </style>
 </head>
 
@@ -279,12 +307,10 @@ body{
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- CONTADOR DIGITAL SCROLL -->
+  <!-- CONTADOR DINÁMICO -->
   <div class="oyentes-box">
-    Oyentes en este momento:
-    <div class="led-container">
-      <span class="led-scroll" id="ledText">0 oyentes</span>
-    </div>
+    Oyentes en este momento:<br>
+    <span class="display" id="contadorOyentes">0</span>
   </div>
 
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
@@ -309,14 +335,18 @@ body{
   <a href="https://tio-sergio.onrender.com" target="_blank" class="ad-btn">👉 Entrar al sitio</a>
 </div>
 
-<!-- ESPACIO PUBLICITARIO (vacío por ahora) -->
-<div class="publicidad-box">
-  <h2>📣 ESPACIO PUBLICITARIO</h2>
+<div class="promo-box">
+  <h2>📢 ¡Hacemos la publicidad de tu marca en<br><span>RADIO IMAGEN™</span></h2>
+  <p>🎧 Convertí tu negocio en protagonista del aire.
 
-  <div class="publicidad-item">
-    Este espacio mostrará la banda o artista que toque el fin de semana.<br>
-    <small>(Cuando me pases NOMBRE + FOTO lo agrego acá)</small>
-  </div>
+😎 Promocioná tu marca, producto o evento con menciones en vivo.
+
+🎙️ Spots profesionales y presencia en nuestra programación.
+
+🚀 No pierdas la oportunidad de estar donde todos escuchan.</p>
+
+  <a class="promo-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Quiero publicitar ahora</a>
+  <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
 </div>
 
 <p class="footer">Diseñado y desarrollado por <a href="https://ciborg347.onrender.com" target="_blank">Ciborg 347™</a></p>
@@ -337,21 +367,16 @@ function cerrarPlayer(){
   radioIframe.src=radioIframe.src;
 }
 
-/* CONTADOR SUBE Y BAJA SUAVEMENTE */
-let oyentes = Math.floor(Math.random()*700)+200;
+/* CONTADOR DE OYENTES */
+let inicio = Math.floor(Math.random()*700)+200; 
+let actual = inicio;
 
-function moverContador() {
-  let cambio = Math.floor(Math.random()*7)-3;  
-  oyentes += cambio;
-
-  if(oyentes < 120) oyentes = 120;
-  if(oyentes > 1200) oyentes = 1200;
-
-  document.getElementById("ledText").textContent = oyentes + " oyentes";
+function actualizarOyentes(){
+  actual += Math.floor(Math.random()*4)+1;
+  document.getElementById("contadorOyentes").textContent = actual;
 }
-
-setInterval(moverContador, 2800);
-moverContador();
+setInterval(actualizarOyentes, 2200);
+actualizarOyentes();
 
 /* Compartir */
 function compartir(){
@@ -361,9 +386,8 @@ function compartir(){
     url:'https://radioimagen347.onrender.com'
   };
   if(navigator.share){navigator.share(shareData);}
-  else{alert('Copiá este enlace:\n'+shareData.url);}
+  else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
 }
 </script>
-
 </body>
 </html>
