@@ -91,7 +91,7 @@ body{
   text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 
-/* Contador */
+/* Contador (estilo display fijo si hiciera falta) */
 .oyentes-box{
   margin:10px auto 25px;
   font-size:1.6em;
@@ -100,15 +100,25 @@ body{
   text-shadow:0 0 12px #00ffff;
   font-family:'Poppins',sans-serif;
 }
-.display{
+
+/* MARQUEE / CARTEL LED */
+#marqueeOyentes{
+  display:block;
   background:#001b1b;
   color:#00ffff;
-  padding:10px 25px;
+  padding:10px 18px;
   border-radius:12px;
   box-shadow:0 0 15px #00ffff;
-  display:inline-block;
-  font-size:1.4em;
-  letter-spacing:2px;
+  font-size:1.15em;
+  font-weight:600;
+  letter-spacing:1px;
+  overflow:hidden;
+}
+
+/* estilo para el número dentro del marquee */
+#contadorOyentes{
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
 }
 
 /* Botón */
@@ -275,6 +285,34 @@ body{
   box-shadow:0 0 25px #ff00ff;
 }
 
+/* ESPACIO PUBLICITARIO NUEVO */
+.publicidad-box{
+  max-width:650px;
+  margin:60px auto;
+  padding:35px 25px;
+  background:rgba(0,0,0,0.75);
+  border-radius:20px;
+  box-shadow:0 0 20px #00ffff;
+}
+.publicidad-box h2{
+  font-size:2em;
+  color:#00ffff;
+  margin-bottom:15px;
+  text-shadow:0 0 15px #00ffff;
+}
+.publicidad-item{
+  margin-top:25px;
+  padding:20px;
+  border:1px dashed #00ffff;
+  border-radius:15px;
+  color:#fff;
+  opacity:0.7;
+  font-style:italic;
+}
+.publicidad-item small{
+  color:#bbb;
+}
+
 /* Footer */
 .footer{
   color:#888;
@@ -307,10 +345,11 @@ body{
   <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- CONTADOR DINÁMICO -->
-  <div class="oyentes-box">
-    Oyentes en este momento:<br>
-    <span class="display" id="contadorOyentes">0</span>
+  <!-- CONTADOR DINÁMICO EN MOVIMIENTO (MARQUEE) -->
+  <div class="oyentes-box" aria-live="polite">
+    <marquee behavior="scroll" direction="left" scrollamount="3" id="marqueeOyentes" onmouseover="this.stop()" onmouseout="this.start()">
+      Oyentes en este momento: <span id="contadorOyentes">0</span>
+    </marquee>
   </div>
 
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
@@ -349,6 +388,16 @@ body{
   <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
 </div>
 
+<!-- ESPACIO PUBLICITARIO (vacío por ahora) -->
+<div class="publicidad-box">
+  <h2>📣 ESPACIO PUBLICITARIO</h2>
+
+  <div class="publicidad-item">
+    Este espacio mostrará la banda o artista que toque el fin de semana.<br>
+    <small>(Cuando me pases NOMBRE + FOTO lo agrego acá)</small>
+  </div>
+</div>
+
 <p class="footer">Diseñado y desarrollado por <a href="https://ciborg347.onrender.com" target="_blank">Ciborg 347™</a></p>
 
 <script>
@@ -367,23 +416,58 @@ function cerrarPlayer(){
   radioIframe.src=radioIframe.src;
 }
 
-/* CONTADOR DE OYENTES */
-let inicio = Math.floor(Math.random()*700)+200; 
-let actual = inicio;
+/* CONTADOR DE OYENTES: SUAVE, SIN SALTOS BRUSCOS, CON MOVIMIENTO */
+(function(){
+  // Base aleatoria de arranque (variará en cada reload)
+  let base = Math.floor(Math.random() * 220) + 360; // rango ~360 - 579
+  let actual = base;
 
-function actualizarOyentes(){
-  actual += Math.floor(Math.random()*4)+1;
-  document.getElementById("contadorOyentes").textContent = actual;
-}
-setInterval(actualizarOyentes, 2200);
-actualizarOyentes();
+  // límites seguros
+  const MIN_OYENTES = 280;
+  const MAX_OYENTES = 650;
+
+  // actualiza el número en pantalla (sin saltos grandes)
+  function actualizarNumero() {
+    // cambio suave: -2 .. +3
+    const cambio = Math.floor(Math.random() * 6) - 2;
+    actual += cambio;
+
+    // normalizar dentro de límites
+    if (actual < MIN_OYENTES) actual = MIN_OYENTES;
+    if (actual > MAX_OYENTES) actual = MAX_OYENTES;
+
+    // actualizar DOM
+    const span = document.getElementById('contadorOyentes');
+    if(span) span.textContent = actual;
+  }
+
+  // función que despacha actualizaciones con intervalo levemente variable
+  function scheduleNext() {
+    // intervalo entre 1700ms y 3200ms (para que no suene mecánico)
+    const intervalo = Math.floor(Math.random() * 1500) + 1700;
+    setTimeout(function(){
+      actualizarNumero();
+      scheduleNext();
+    }, intervalo);
+  }
+
+  // inicializar: mostrar base y arrancar ciclo
+  document.addEventListener('DOMContentLoaded', function(){
+    const span = document.getElementById('contadorOyentes');
+    if(span) span.textContent = actual;
+    // un primer pequeño ajuste para que no siempre empiece exactamente igual visualmente
+    setTimeout(actualizarNumero, 800 + Math.floor(Math.random()*700));
+    // luego programar actualizaciones continuas
+    scheduleNext();
+  });
+})();
 
 /* Compartir */
 function compartir(){
   const shareData={
     title:'🎧 Radio Imagen™ | En Vivo 24hs',
     text:'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
-    url:'https://radioimagen.onrender.com'
+    url:'https://radioimagen347.onrender.com'
   };
   if(navigator.share){navigator.share(shareData);}
   else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
