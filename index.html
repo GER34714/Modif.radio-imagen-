@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#00ffff">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 @font-face {
   font-family: 'Amadeus';
@@ -35,32 +35,35 @@ body{
   padding:20px;
 }
 
-/* Caja principal */
+/* Caja principal premium */
 .radio-box{
   position:relative;
-  background:rgba(0,0,0,0.8);
-  border-radius:25px;
-  box-shadow:0 0 20px #00ffff;
-  max-width:600px;
-  margin:40px auto;
-  padding:50px 30px;
-  animation:neonPulse 5s infinite;
+  background:rgba(0,0,0,0.7);
+  border-radius:30px;
+  box-shadow:0 0 25px rgba(0,255,255,0.2);
+  max-width:580px;
+  margin:45px auto;
+  padding:55px 35px;
+  backdrop-filter:blur(6px);
+  animation:neonPulse 7s infinite;
 }
 @keyframes neonPulse{
-  0%,100%{box-shadow:0 0 20px #00ffff;}
-  50%{box-shadow:0 0 10px #ff00ff;}
+  0%,100%{box-shadow:0 0 22px rgba(0,255,255,0.25);}
+  50%{box-shadow:0 0 12px rgba(255,0,255,0.15);}
 }
 
-/* Título */
+/* Título estilo Tesla */
 .radio-title{
   font-family:'Amadeus',sans-serif;
-  font-size:2.5em;
-  margin-bottom:10px;
+  font-size:2.3em;
+  letter-spacing:3px;
+  margin-bottom:15px;
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-size:300%;
   animation:neonFlow 6s infinite linear;
+  opacity:0.92;
 }
 @keyframes neonFlow{
   0%{background-position:0%;}
@@ -70,61 +73,58 @@ body{
 /* Logo */
 .radio-logo{
   display:block;
-  margin:20px auto 10px;
-  width:180px;
+  margin:15px auto 10px;
+  width:160px;
   max-width:85%;
+  filter:drop-shadow(0 0 6px rgba(0,255,255,0.3));
 }
 
-/* Texto de oyentes desplazándose */
+/* TEXTO DE OYENTES ESTILO TESLA */
 .oyentes-marquee {
   margin-top:10px;
-  font-size:1.4em;
-  font-weight:600;
-  color:#00ffff;
-  text-shadow:0 0 12px #00ffff;
+  font-weight:400;
+  opacity:0.9;
 }
+
 .marq {
   display:block;
   width:100%;
-  font-size:1.4em;
-  font-weight:600;
+  font-size:1.05em;  /* MÁS CHICO Y ELEGANTE */
+  letter-spacing:1px;
+  color:#00eaff;
+  text-shadow:0 0 6px rgba(0,255,255,0.35); /* Glow leve */
 }
 
 /* Subtexto */
 .radio-sub{
   color:#fff;
-  font-size:1.1em;
+  font-size:1.05em;
   margin-bottom:25px;
-  text-shadow:0 0 6px rgba(0,255,255,0.3);
+  opacity:0.85;
 }
 
-/* Botón */
+/* Botón premium */
 .play-btn{
   background:linear-gradient(135deg,#00ffff,#ff0080);
   color:#000;
   border:none;
-  padding:15px 50px;
+  padding:14px 42px;
   border-radius:50px;
-  font-size:1.3em;
+  font-size:1.15em;
+  font-weight:500;
   cursor:pointer;
-  text-shadow:0 0 5px #fff;
-  box-shadow:0 0 15px #00ffff;
-  transition:.3s;
+  box-shadow:0 0 12px #00ffff;
+  transition:.25s;
 }
 .play-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.06);
   box-shadow:0 0 25px #ff00ff;
 }
 
 /* Player */
 .player-box{
   display:none;
-  margin-top:30px;
-  animation:fadeIn 1s ease forwards;
-}
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(30px);}
-  to{opacity:1;transform:translateY(0);}
+  margin-top:25px;
 }
 .player-container{
   width:120px;
@@ -132,73 +132,50 @@ body{
   margin:auto;
   overflow:hidden;
   border-radius:20px;
-  box-shadow:0 0 15px rgba(0,255,255,0.5);
+  box-shadow:0 0 12px rgba(0,255,255,0.35);
 }
 .player-container iframe{
   width:100%;
   height:300px;
   border:none;
   transform:translateY(-200px);
-  scale:1.4;
+  scale:1.38;
+}
+
+/* Botón cerrar */
+.close-btn{
+  margin-top:20px;
+  background:#ff0080;
+  border:none;
+  color:#fff;
+  font-size:0.95em;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 10px #ff00ff;
 }
 
 /* Publicidad */
 .promo-box{
   max-width:600px;
-  margin:60px auto;
-  background:rgba(0,0,0,0.8);
-  border-radius:20px;
-  padding:45px 25px;
-  box-shadow:0 0 20px rgba(255,0,255,0.4);
-}
-
-.promo-box h2{
-  color:#ff00ff;
-  font-size:1.9em;
-  margin-bottom:15px;
-  text-shadow:0 0 10px rgba(255,0,255,0.4);
-}
-
-.promo-box h2 span{
-  display:block;
-  font-family:'Amadeus',sans-serif;
-  font-size:1.2em;
-  color:#00ffff;
-  text-shadow:0 0 12px #00ffff,0 0 18px #ff00ff;
-}
-
-.promo-box p{
-  color:#eaeaea;
-  font-size:1em;
-  line-height:1.7em;
-  margin-bottom:25px;
-  white-space:pre-line;
-}
-
-.promo-btn,.share-btn{
-  display:inline-block;
-  border:none;
-  border-radius:50px;
-  font-size:1.1em;
-  padding:12px 35px;
-}
-
-.promo-btn{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-}
-
-.share-btn{
-  background:linear-gradient(135deg,#ff9900,#ff0080);
-  color:#fff;
+  margin:55px auto;
+  background:rgba(0,0,0,0.7);
+  border-radius:22px;
+  padding:40px 22px;
+  box-shadow:0 0 18px rgba(255,0,255,0.3);
 }
 
 /* Footer */
 .footer{
-  color:#888;
-  font-size:0.9em;
-  margin:40px 0 20px;
+  color:#777;
+  font-size:0.8em;
+  margin:35px 0 15px;
 }
+.footer a{
+  color:#00ffff;
+  text-decoration:none;
+}
+
 </style>
 </head>
 
@@ -209,7 +186,7 @@ body{
   <h2 class="radio-title">Radio Imagen™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
 
-  <!-- 🔥 MARQUEE CON OYENTES -->
+  <!-- 🔥 MARQUEE PREMIUM -->
   <div class="oyentes-marquee">
     <marquee class="marq" scrollamount="8">
       Oyentes en este momento: <span id="contadorOyentes">0</span>
@@ -246,34 +223,27 @@ body{
 
 <script>
 /* PLAYER */
-const playBtn=document.getElementById('playButton');
-const playerBox=document.getElementById('playerBox');
-const radioIframe=document.getElementById('radioIframe');
-
 function abrirPlayer(){
-  playerBox.style.display='block';
-  playBtn.style.display='none';
+  document.getElementById('playerBox').style.display='block';
+  document.getElementById('playButton').style.display='none';
 }
 function cerrarPlayer(){
-  playerBox.style.display='none';
-  playBtn.style.display='inline-block';
-  radioIframe.src=radioIframe.src;
+  document.getElementById('playerBox').style.display='none';
+  document.getElementById('playButton').style.display='inline-block';
+  document.getElementById('radioIframe').src=document.getElementById('radioIframe').src;
 }
 
-/* CONTADOR DE OYENTES DINÁMICO SUAVE */
+/* CONTADOR SUAVE */
 let base = Math.floor(Math.random()*200)+360;
 let actual = base;
 
 function actualizarOyentes(){
   let cambio = Math.floor(Math.random()*6)-2;
   actual += cambio;
-
   if(actual < 280) actual = 280;
   if(actual > 650) actual = 650;
-
   document.getElementById("contadorOyentes").textContent = actual;
 }
-
 setInterval(actualizarOyentes, 2400);
 actualizarOyentes();
 
