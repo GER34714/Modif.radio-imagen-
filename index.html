@@ -26,6 +26,14 @@ body{
   text-align:center;
   padding:20px;
 }
+
+/* 🔥 Fuente Amadeus */
+@font-face{
+  font-family:'Amadeus';
+  src:url('AMADEUS_.TTF');
+}
+
+/* EN VIVO */
 .en-vivo{
   display:inline-flex;
   align-items:center;
@@ -50,6 +58,7 @@ body{
  50%{transform:scale(1.3);opacity:1}
  100%{transform:scale(.9);opacity:.6}
 }
+
 .top-info{
   max-width:600px;
   margin:10px auto 25px;
@@ -68,6 +77,8 @@ body{
   color:#fff;
   opacity:.85;
 }
+
+/* RADIO BOX */
 .radio-box{
   background:rgba(0,0,0,.78);
   padding:40px 30px;
@@ -76,13 +87,11 @@ body{
   margin:30px auto;
   box-shadow:0 0 25px #00ffff;
 }
-@font-face{
-  font-family:'Amadeus';
-  src:url('AMADEUS_.TTF');
-}
+
+/* 🔥 Título Radio Imagen con fuente Amadeus */
 .radio-title{
   font-family:'Amadeus';
-  font-size:2.8em;
+  font-size:3em;
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -93,7 +102,9 @@ body{
   from{background-position:0%}
   to{background-position:100%}
 }
+
 .radio-logo{width:180px;margin:15px auto 0;display:block}
+
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
   white-space:nowrap;
@@ -108,6 +119,7 @@ body{
  from{transform:translateX(100%)}
  to{transform:translateX(-100%)}
 }
+
 .play-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#ff0080);
@@ -117,6 +129,7 @@ body{
   color:#000;font-weight:600;
 }
 .play-btn:hover{transform:scale(1.08)}
+
 .player-box{display:none;margin-top:25px}
 .player-container{
   width:120px;height:100px;margin:auto;
@@ -134,17 +147,6 @@ body{
   padding:10px 20px;
   border:none;border-radius:10px;
   color:#fff;cursor:pointer;
-}
-.like-box{margin-top:20px;font-size:1.2em;color:#fff}
-.like-btn{
-  background:none;border:none;
-  font-size:2em;color:#ff0077;
-  cursor:pointer;
-}
-.like-count{
-  margin-left:10px;
-  font-size:1.3em;
-  color:#00ffff;
 }
 
 /* BOTÓN COMPARTIR */
@@ -202,9 +204,18 @@ body{
   text-decoration:none;
   font-size:1.1em;
 }
+
+/* FOOTER */
 .footer{
   margin-top:40px;
   color:#aaa;
+  font-size:1em;
+}
+
+.footer img{
+  width:22px;
+  vertical-align:middle;
+  margin-right:6px;
 }
 </style>
 </head>
@@ -218,7 +229,9 @@ body{
 
 <div class="radio-box">
 
+  <!-- TÍTULO con Amadeus -->
   <h2 class="radio-title">Radio Imagen™</h2>
+
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
 
   <div class="en-vivo"><div class="dot"></div> EN VIVO</div>
@@ -238,13 +251,8 @@ body{
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <div class="like-box">
-    <button class="like-btn" id="likeBtn">❤️</button>
-    <span class="like-count" id="likeCount">1382</span> Me gusta
-  </div>
-
   <!-- BOTÓN COMPARTIR -->
-  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com" data-action="share/whatsapp/share">
+  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
 
@@ -289,7 +297,11 @@ body{
   </a>
 </div>
 
-<p class="footer">Diseñado por <a href="https://ciborg347.onrender.com" style="color:#00ffff;">Ciborg347™</a></p>
+<!-- ⭐ FAVICON + CRÉDITO -->
+<p class="footer">
+  <img src="https://iili.io/fHuNsWP.png">
+  Creado y diseñado por <a href="https://ciborg347.onrender.com" style="color:#00ffff;">CIBORG347™</a>
+</p>
 
 <script>
 function abrirPlayer(){
@@ -310,13 +322,6 @@ function moverOy(){
     "Oyentes en este momento: "+oy;
 }
 setInterval(moverOy,1800); moverOy();
-
-let lk = localStorage.getItem("likesRadio") || 1382;
-document.getElementById("likeCount").textContent = lk;
-document.getElementById("likeBtn").onclick = ()=>{
-  lk++; localStorage.setItem("likesRadio",lk);
-  document.getElementById("likeCount").textContent = lk;
-};
 
 function actHora(){
   let n = new Date();
