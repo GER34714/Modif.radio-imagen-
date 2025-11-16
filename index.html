@@ -12,7 +12,7 @@
 <meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música sin pausas, difusión, entrevistas y buena energía. Escuchanos en vivo ahora 🎧">
 <meta property="og:image" content="https://iili.io/KZ3YpR4.md.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://RadioImagen.onrender.com">
+<meta property="og:url" content="https://radioimagen347.onrender.com">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#00ffff">
 
@@ -62,6 +62,7 @@ body{
   -webkit-text-fill-color:transparent;
   background-size:300%;
   animation:neonFlow 6s infinite linear;
+  text-shadow:0 0 15px rgba(0,255,255,0.3);
 }
 @keyframes neonFlow{
   0%{background-position:0%;}
@@ -74,6 +75,12 @@ body{
   margin:20px auto 30px;
   width:180px;
   max-width:85%;
+  animation:logoPulse 4s infinite ease-in-out;
+}
+@keyframes logoPulse{
+  0%{filter:drop-shadow(0 0 10px #00ffff);}
+  50%{filter:drop-shadow(0 0 15px #ff00ff);}
+  100%{filter:drop-shadow(0 0 10px #00ffff);}
 }
 
 /* Subtexto */
@@ -84,22 +91,34 @@ body{
   text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 
-/* CONTADOR LED */
+/* Contador (estilo display fijo si hiciera falta) */
 .oyentes-box{
-  margin:15px auto 25px;
-  font-size:1.2em;
-  font-weight:600;
-  color:#00ffff;
-}
-
-#marqueeOyentes{
+  margin:10px auto 25px;
   font-size:1.6em;
   font-weight:600;
   color:#00ffff;
-  text-shadow:0 0 10px #00ffff;
-  width:100%;
+  text-shadow:0 0 12px #00ffff;
+  font-family:'Poppins',sans-serif;
+}
+
+/* MARQUEE / CARTEL LED */
+#marqueeOyentes{
   display:block;
-  margin-top:10px;
+  background:#001b1b;
+  color:#00ffff;
+  padding:10px 18px;
+  border-radius:12px;
+  box-shadow:0 0 15px #00ffff;
+  font-size:1.15em;
+  font-weight:600;
+  letter-spacing:1px;
+  overflow:hidden;
+}
+
+/* estilo para el número dentro del marquee */
+#contadorOyentes{
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
 }
 
 /* Botón */
@@ -111,6 +130,7 @@ body{
   border-radius:50px;
   font-size:1.3em;
   cursor:pointer;
+  text-shadow:0 0 5px #fff;
   box-shadow:0 0 15px #00ffff;
   transition:.3s;
 }
@@ -145,44 +165,152 @@ body{
   scale:1.4;
 }
 
-/* PUBLICIDAD FIJA TIO SERGIO – estilo card WhatsApp */
-.publi-box{
-  max-width:600px;
-  margin:50px auto;
-  background:#111;
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 0 15px #00ffff;
-  text-align:left;
-}
-
-.publi-img{
-  width:100%;
-  border-radius:15px;
-  margin-bottom:15px;
-}
-
-.publi-title{
-  font-size:1.4em;
-  color:#00ffff;
-  margin-bottom:5px;
-}
-
-.publi-desc{
-  color:#ccc;
-  font-size:0.95em;
-  margin-bottom:12px;
-}
-
-.publi-link{
-  display:inline-block;
-  margin-top:5px;
-  background:#00ffff;
+/* Botón cerrar */
+.close-btn{
+  margin-top:20px;
+  background:#ff0080;
+  border:none;
+  color:#fff;
+  font-size:1em;
   padding:10px 20px;
   border-radius:10px;
-  color:#000;
-  text-decoration:none;
+  cursor:pointer;
+  box-shadow:0 0 10px #ff0080;
+  transition:.3s;
+}
+.close-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #ff00ff;
+}
+
+/* PUBLICIDAD TÍO SERGIO (C2) */
+.ad-box{
+  max-width:630px;
+  margin:50px auto;
+  padding:35px 25px;
+  background:rgba(0,0,0,0.85);
+  border-radius:25px;
+  box-shadow:0 0 25px #ff00ff;
+  animation:adPulse 6s infinite;
+}
+@keyframes adPulse{
+  0%,100%{box-shadow:0 0 25px #ff00ff;}
+  50%{box-shadow:0 0 15px #00ffff;}
+}
+.ad-title{
+  font-size:1.9em;
   font-weight:600;
+  color:#ff00ff;
+  margin-bottom:10px;
+}
+.ad-mic{
+  font-size:3em;
+  margin-bottom:10px;
+  text-shadow:0 0 20px #00ffff;
+}
+.ad-desc{
+  color:#eaeaea;
+  font-size:1em;
+  margin-top:10px;
+  line-height:1.6em;
+}
+.ad-btn{
+  margin-top:18px;
+  display:inline-block;
+  padding:12px 35px;
+  background:linear-gradient(135deg,#00ffff,#ff00ff);
+  color:#000;
+  border-radius:50px;
+  font-size:1.1em;
+  text-decoration:none;
+  box-shadow:0 0 15px #00ffff;
+}
+
+/* Publicidad original */
+.promo-box{
+  max-width:600px;
+  margin:60px auto;
+  background:rgba(0,0,0,0.8);
+  border-radius:20px;
+  padding:45px 25px;
+  box-shadow:0 0 20px rgba(255,0,255,0.4);
+}
+.promo-box h2{
+  color:#ff00ff;
+  font-size:1.9em;
+  margin-bottom:15px;
+  text-shadow:0 0 10px rgba(255,0,255,0.4);
+}
+.promo-box h2 span{
+  display:block;
+  font-family:'Amadeus',sans-serif;
+  font-size:1.2em;
+  color:#00ffff;
+  text-shadow:0 0 12px #00ffff,0 0 18px #ff00ff;
+}
+.promo-box p{
+  color:#eaeaea;
+  font-size:1em;
+  line-height:1.7em;
+  margin-bottom:25px;
+  text-shadow:0 0 5px rgba(0,255,255,0.3);
+  white-space:pre-line;
+}
+.promo-btn,.share-btn{
+  display:inline-block;
+  border:none;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:1.1em;
+  padding:12px 35px;
+  transition:.3s;
+}
+.promo-btn{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;
+  box-shadow:0 0 15px #25D366;
+}
+.promo-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #25D366;
+}
+.share-btn{
+  background:linear-gradient(135deg,#ff9900,#ff0080);
+  color:#fff;
+  margin-top:12px;
+  box-shadow:0 0 15px #ff00ff;
+}
+.share-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ff00ff;
+}
+
+/* ESPACIO PUBLICITARIO NUEVO */
+.publicidad-box{
+  max-width:650px;
+  margin:60px auto;
+  padding:35px 25px;
+  background:rgba(0,0,0,0.75);
+  border-radius:20px;
+  box-shadow:0 0 20px #00ffff;
+}
+.publicidad-box h2{
+  font-size:2em;
+  color:#00ffff;
+  margin-bottom:15px;
+  text-shadow:0 0 15px #00ffff;
+}
+.publicidad-item{
+  margin-top:25px;
+  padding:20px;
+  border:1px dashed #00ffff;
+  border-radius:15px;
+  color:#fff;
+  opacity:0.7;
+  font-style:italic;
+}
+.publicidad-item small{
+  color:#bbb;
 }
 
 /* Footer */
@@ -191,20 +319,35 @@ body{
   font-size:0.9em;
   margin:40px 0 20px;
 }
+.footer a{
+  color:#00ffff;
+  text-decoration:none;
+}
+.footer a:hover{text-decoration:underline;}
+
+/* Responsive */
+@media(max-width:600px){
+  body{padding:10px;}
+  .radio-box,.promo-box,.ad-box{padding:30px 20px;}
+  .radio-title{font-size:2em;}
+  .radio-logo{width:150px;}
+  .player-container{width:100px;height:85px;}
+  .player-container iframe{transform:translateY(-190px);scale:1.3;}
+  .play-btn{font-size:1.1em;padding:12px 35px;}
+  .promo-box h2{font-size:1.6em;}
+}
 </style>
 </head>
 
 <body>
-
 <div class="radio-box">
   <h2 class="radio-title">Radio Imagen™</h2>
-  <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
-
+  <img src="https://iili.io/KZ3YpR4.md.png" alt="Logo Radio Imagen" class="radio-logo">
   <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- CONTADOR LED RÁPIDO -->
-  <div class="oyentes-box">
-    <marquee scrollamount="8" id="marqueeOyentes">
+  <!-- CONTADOR DINÁMICO EN MOVIMIENTO (MARQUEE) -->
+  <div class="oyentes-box" aria-live="polite">
+    <marquee behavior="scroll" direction="left" scrollamount="3" id="marqueeOyentes" onmouseover="this.stop()" onmouseout="this.start()">
       Oyentes en este momento: <span id="contadorOyentes">0</span>
     </marquee>
   </div>
@@ -219,20 +362,45 @@ body{
   </div>
 </div>
 
-<!-- PUBLICIDAD FIJA — TÍO SERGIO (vista previa tipo WhatsApp) -->
-<div class="publi-box">
-  <img src="https://iili.io/KX1i9tS.md.jpg" class="publi-img">
-  <div class="publi-title">TÍO SERGIO™ – El lugar de los mayores 😎</div>
-  <div class="publi-desc">
-    Música • Shows en vivo • Cumbia • Cuarteto • Ambiente fiestero y la mejor noche de José C. Paz.
-  </div>
-  <a class="publi-link" href="https://tio-sergio.onrender.com" target="_blank">👉 Ver la página</a>
+<!-- PUBLICIDAD TÍO SERGIO -->
+<div class="ad-box">
+  <div class="ad-mic">🎤</div>
+  <h2 class="ad-title">ESPACIO PUBLICITARIO– TÍO SERGIO™</h2>
+  <p class="ad-desc">
+    Sonando en la noche de José C. Paz.<br>
+    Música, shows en vivo, diversión y ambiente bien fiestero.<br>
+    ¡Entrá y conocé el lugar de los mayores!
+  </p>
+  <a href="https://tio-sergio.onrender.com" target="_blank" class="ad-btn">👉 Entrar al sitio</a>
 </div>
 
-<p class="footer">Diseñado por Ciborg 347™</p>
+<div class="promo-box">
+  <h2>📢 ¡Hacemos la publicidad de tu marca en<br><span>RADIO IMAGEN™</span></h2>
+  <p>🎧 Convertí tu negocio en protagonista del aire.
+
+😎 Promocioná tu marca, producto o evento con menciones en vivo.
+
+🎙️ Spots profesionales y presencia en nuestra programación.
+
+🚀 No pierdas la oportunidad de estar donde todos escuchan.</p>
+
+  <a class="promo-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">💬 Quiero publicitar ahora</a>
+  <button class="share-btn" onclick="compartir()">📤 Compartir esta radio</button>
+</div>
+
+<!-- ESPACIO PUBLICITARIO (vacío por ahora) -->
+<div class="publicidad-box">
+  <h2>📣 ESPACIO PUBLICITARIO</h2>
+
+  <div class="publicidad-item">
+    Este espacio mostrará la banda o artista que toque el fin de semana.<br>
+    <small>(Cuando me pases NOMBRE + FOTO lo agrego acá)</small>
+  </div>
+</div>
+
+<p class="footer">Diseñado y desarrollado por <a href="https://ciborg347.onrender.com" target="_blank">Ciborg 347™</a></p>
 
 <script>
-/* PLAYER */
 const playBtn=document.getElementById('playButton');
 const playerBox=document.getElementById('playerBox');
 const radioIframe=document.getElementById('radioIframe');
@@ -240,6 +408,7 @@ const radioIframe=document.getElementById('radioIframe');
 function abrirPlayer(){
   playerBox.style.display='block';
   playBtn.style.display='none';
+  window.scrollTo({top:playerBox.offsetTop-100,behavior:'smooth'});
 }
 function cerrarPlayer(){
   playerBox.style.display='none';
@@ -247,28 +416,62 @@ function cerrarPlayer(){
   radioIframe.src=radioIframe.src;
 }
 
-/* CONTADOR LED suave */
+/* CONTADOR DE OYENTES: SUAVE, SIN SALTOS BRUSCOS, CON MOVIMIENTO */
 (function(){
-  let base = Math.floor(Math.random()*200)+360;
+  // Base aleatoria de arranque (variará en cada reload)
+  let base = Math.floor(Math.random() * 220) + 360; // rango ~360 - 579
   let actual = base;
 
-  const MIN = 280;
-  const MAX = 650;
+  // límites seguros
+  const MIN_OYENTES = 280;
+  const MAX_OYENTES = 650;
 
-  function actualizar() {
-    let cambio = Math.floor(Math.random()*6)-2;
+  // actualiza el número en pantalla (sin saltos grandes)
+  function actualizarNumero() {
+    // cambio suave: -2 .. +3
+    const cambio = Math.floor(Math.random() * 6) - 2;
     actual += cambio;
 
-    if(actual < MIN) actual = MIN;
-    if(actual > MAX) actual = MAX;
+    // normalizar dentro de límites
+    if (actual < MIN_OYENTES) actual = MIN_OYENTES;
+    if (actual > MAX_OYENTES) actual = MAX_OYENTES;
 
-    document.getElementById("contadorOyentes").textContent = actual;
+    // actualizar DOM
+    const span = document.getElementById('contadorOyentes');
+    if(span) span.textContent = actual;
   }
 
-  setInterval(actualizar, 2200);
-  actualizar();
-})();
-</script>
+  // función que despacha actualizaciones con intervalo levemente variable
+  function scheduleNext() {
+    // intervalo entre 1700ms y 3200ms (para que no suene mecánico)
+    const intervalo = Math.floor(Math.random() * 1500) + 1700;
+    setTimeout(function(){
+      actualizarNumero();
+      scheduleNext();
+    }, intervalo);
+  }
 
+  // inicializar: mostrar base y arrancar ciclo
+  document.addEventListener('DOMContentLoaded', function(){
+    const span = document.getElementById('contadorOyentes');
+    if(span) span.textContent = actual;
+    // un primer pequeño ajuste para que no siempre empiece exactamente igual visualmente
+    setTimeout(actualizarNumero, 800 + Math.floor(Math.random()*700));
+    // luego programar actualizaciones continuas
+    scheduleNext();
+  });
+})();
+
+/* Compartir */
+function compartir(){
+  const shareData={
+    title:'🎧 Radio Imagen™ | En Vivo 24hs',
+    text:'Escuchá Radio Imagen™ – música, difusión y buena vibra 24hs 🎶',
+    url:'https://radioimagen347.onrender.com'
+  };
+  if(navigator.share){navigator.share(shareData);}
+  else{alert('Copiá este enlace para compartir:\n'+shareData.url);}
+}
+</script>
 </body>
 </html>
