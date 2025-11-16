@@ -75,14 +75,13 @@ body{
   max-width:85%;
 }
 
-/* 🔥 TICKER ESTILO NOTICIERO */
+/* 🔥 TICKER */
 .ticker-container {
   width:100%;
   overflow:hidden;
   white-space:nowrap;
   margin-top:12px;
 }
-
 .ticker-text {
   display:inline-block;
   font-size:1.4em;
@@ -91,7 +90,6 @@ body{
   text-shadow:0 0 10px #00ffff;
   animation:tickerMove 10s linear infinite;
 }
-
 @keyframes tickerMove {
   0% { transform:translateX(100%); }
   100% { transform:translateX(-100%); }
@@ -105,7 +103,7 @@ body{
   text-shadow:0 0 6px rgba(0,255,255,0.3);
 }
 
-/* Botón */
+/* Botón escuchar */
 .play-btn{
   background:linear-gradient(135deg,#00ffff,#ff0080);
   color:#000;
@@ -143,8 +141,19 @@ body{
   transform:translateY(-200px);
   scale:1.4;
 }
+.close-btn{
+  margin-top:20px;
+  background:#ff0080;
+  border:none;
+  color:#fff;
+  font-size:1em;
+  padding:10px 20px;
+  border-radius:10px;
+  cursor:pointer;
+  box-shadow:0 0 10px #ff00ff;
+}
 
-/* Publicidad */
+/* PUBLICIDAD RADIO IMAGEN */
 .promo-box{
   max-width:600px;
   margin:60px auto;
@@ -161,38 +170,52 @@ body{
   text-shadow:0 0 10px rgba(255,0,255,0.4);
 }
 
-.promo-box h2 span{
-  display:block;
-  font-family:'Amadeus',sans-serif;
-  font-size:1.2em;
-  color:#00ffff;
-  text-shadow:0 0 12px #00ffff,0 0 18px #ff00ff;
+/* ⭐ NUEVA SECCIÓN — ESPACIO PUBLICITARIO TÍO SERGIO */
+.ads-box{
+  max-width:600px;
+  margin:50px auto;
+  background:rgba(0,0,0,0.85);
+  border-radius:22px;
+  padding:35px 25px;
+  box-shadow:0 0 25px #ff00ff;
+  text-align:center;
 }
 
-.promo-box p{
+.ads-img{
+  width:100%;
+  border-radius:15px;
+  box-shadow:0 0 20px #ff00ff;
+  margin-bottom:20px;
+}
+
+.ads-title{
+  font-size:1.8em;
+  color:#ff00ff;
+  margin-bottom:10px;
+  text-shadow:0 0 15px #ff00ff;
+}
+
+.ads-desc{
   color:#eaeaea;
   font-size:1em;
-  line-height:1.7em;
-  margin-bottom:25px;
-  white-space:pre-line;
+  margin-bottom:20px;
+  line-height:1.6em;
 }
 
-.promo-btn,.share-btn{
+.ads-btn{
   display:inline-block;
-  border:none;
+  background:linear-gradient(135deg,#00ffff,#ff0080);
+  color:#000;
+  padding:12px 35px;
   border-radius:50px;
   font-size:1.1em;
-  padding:12px 35px;
+  text-decoration:none;
+  box-shadow:0 0 18px #00ffff;
+  transition:.3s;
 }
-
-.promo-btn{
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;
-}
-
-.share-btn{
-  background:linear-gradient(135deg,#ff9900,#ff0080);
-  color:#fff;
+.ads-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 28px #ff00ff;
 }
 
 /* Footer */
@@ -211,7 +234,7 @@ body{
   <h2 class="radio-title">Radio Imagen™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
 
-  <!-- 🔥 TICKER -->
+  <!-- TICKER -->
   <div class="ticker-container">
     <div class="ticker-text">
       Oyentes en este momento: <span id="contadorOyentes">0</span>
@@ -226,10 +249,27 @@ body{
     <div class="player-container">
       <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
     </div>
+    <button class="close-btn" onclick="cerrarPlayer()">❌ CERRAR</button>
   </div>
 
 </div>
 
+<!-- ⭐ ESPACIO PUBLICITARIO — TÍO SERGIO -->
+<div class="ads-box">
+  <img src="https://iili.io/Kk6hw97.jpg" class="ads-img" alt="Tío Sergio Preview">
+
+  <h2 class="ads-title">🎉 TÍO SERGIO – El Lugar de los Mayores™</h2>
+
+  <p class="ads-desc">
+    📍 José C. Paz  
+    Shows en vivo, música, ambiente fiestero y noches únicas.  
+    Mirá la programación del fin de semana y venite a disfrutar.
+  </p>
+
+  <a href="https://tio-sergio.onrender.com" target="_blank" class="ads-btn">👉 Ver programación</a>
+</div>
+
+<!-- PUBLICIDAD RADIO IMAGEN -->
 <div class="promo-box">
   <h2>📢 ¡Hacemos la publicidad de tu marca en<br><span>RADIO IMAGEN™</span></h2>
 
@@ -257,7 +297,7 @@ function cerrarPlayer(){
   document.getElementById('radioIframe').src=document.getElementById('radioIframe').src;
 }
 
-/* CONTADOR DE OYENTES SUAVE */
+/* CONTADOR OYENTES */
 let base = Math.floor(Math.random()*200)+360;
 let actual = base;
 
