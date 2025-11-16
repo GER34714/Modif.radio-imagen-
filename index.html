@@ -33,7 +33,7 @@ body{
   src:url('AMADEUS_.TTF');
 }
 
-/* 🔥 NEÓN PULSANTE */
+/* 🔥 PULSO NEÓN PARA Radio Imagen™ */
 .neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
@@ -106,15 +106,14 @@ body{
   font-family:'Amadeus';
   font-size:3em;
 }
+.radio-title span{display:inline-block}
+
+/* Moving neon effect applied separately */
 .radio-title .neon-pulse{
   display:inline-block;
 }
 
-.radio-logo{
-  width:180px;
-  margin:15px auto 0;
-  display:block;
-}
+.radio-logo{width:180px;margin:15px auto 0;display:block}
 
 /* OYENTES */
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
@@ -209,15 +208,13 @@ body{
   font-size:1.9em;
   margin-bottom:10px;
 }
-/* Línea Radio Imagen pulsante */
+
 .publicitar-title .neon-pulse{
   font-family:'Amadeus';
-  font-size:1.4em;
-  display:block;
-  margin-top:5px;
+  font-size:1.3em;
 }
 
-/* BOTON PUBLICITAR */
+/* BOTÓN PUBLICITAR */
 .publicitar-btn{
   margin-top:15px;
   display:inline-block;
@@ -306,17 +303,14 @@ body{
   </a>
 </div>
 
-<!-- 🔥 PUBLICITAR EN… (AHORA EN DOS LÍNEAS + PULSO) -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
-    PUBLICITÁ EN
-    <span class="neon-pulse">Radio Imagen™</span>
+    PUBLICITÁ EN <span class="neon-pulse">Radio Imagen™</span>
   </h2>
 
   <p style="color:white;margin-top:10px;">
     Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
-
   <a class="publicitar-btn"
      href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
      target="_blank">
@@ -369,7 +363,7 @@ async function cargarClima(){
     let lat = ip.latitude, lon = ip.longitude;
 
     let r = await fetch(
-  `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
     ).then(x=>x.json());
 
     let t = r.current_weather.temperature;
