@@ -246,11 +246,19 @@ body{
   color:#aaa;
   font-size:1em;
   line-height:1.5em;
+  padding:20px 0;
 }
 .footer img{
   width:26px;
   vertical-align:middle;
   margin-left:6px;
+}
+
+/* ♥ Hace TODO el footer clickeable */
+.footer-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
 }
 </style>
 </head>
@@ -285,7 +293,8 @@ body{
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
+  <a class="share-btn" 
+     href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
 
@@ -336,16 +345,16 @@ body{
   </a>
 </div>
 
-<!-- ⭐ FOOTER – CIBORG CON PULSO NEÓN CIAN + LINK -->
-<p class="footer">
-  Creado y diseñado por<br>
-  <a href="https://ciborg347.onrender.com" target="_blank" style="text-decoration:none;">
+<!-- ⭐ FOOTER CLICKEABLE ENTERO ⭐ -->
+<a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
+  <p class="footer">
+    Creado y diseñado por<br>
     <span class="neon-cyan" style="font-family:'Poppins'; font-weight:600; font-size:1.2em;">
       CIBORG347™ 
       <img src="https://iili.io/fHuNsWP.png">
     </span>
-  </a>
-</p>
+  </p>
+</a>
 
 <script>
 function abrirPlayer(){
