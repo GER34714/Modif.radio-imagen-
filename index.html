@@ -42,7 +42,8 @@ body{
   color:#ff0033;
   font-family:'Montserrat',sans-serif;
   font-weight:600;
-  margin-bottom:15px;
+  margin-top:10px;
+  margin-bottom:5px;
 }
 .en-vivo .dot{
   width:10px;height:10px;border-radius:50%;
@@ -105,7 +106,7 @@ body{
 }
 
 /* LOGO */
-.radio-logo{width:180px;margin:15px auto;display:block}
+.radio-logo{width:180px;margin:15px auto 0;display:block}
 
 /* SONANDO AHORA */
 .sonando-now{
@@ -141,8 +142,6 @@ body{
   border:none;border-radius:50px;
   font-size:1.3em;
   color:#000;font-weight:600;
-  cursor:pointer;
-  box-shadow:0 0 15px #00ffff;
 }
 .play-btn:hover{transform:scale(1.08)}
 
@@ -179,46 +178,24 @@ body{
   color:#00ffff;
 }
 
-/* PUBLICIDAD */
+/* PUBLICIDAD TITULO */
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;
   color:#00ffff;
   margin-top:40px;
+  margin-bottom:15px;
   text-shadow:0 0 10px #00ffff;
 }
 
-.carrusel-box{
-  max-width:600px;margin:20px auto;
-  padding:20px;
+/* PUBLICIDAD BOX (SIN IMÁGENES) */
+.public-box{
   background:rgba(0,0,0,.65);
+  max-width:600px;
+  margin:25px auto;
+  padding:25px 20px;
   border-radius:20px;
   box-shadow:0 0 18px #00ffff;
-  position:relative;
-}
-
-.carrusel-img{
-  width:100%;
-  border-radius:15px;
-}
-
-/* FLECHAS PC */
-.arrow{
-  display:none;
-  position:absolute;top:50%;
-  transform:translateY(-50%);
-  font-size:2.5em;
-  color:#00ffff;
-  cursor:pointer;
-  text-shadow:0 0 10px #00ffff;
-  user-select:none;
-}
-.arrow.left{left:10px}
-.arrow.right{right:10px}
-
-/* SOLO PC */
-@media(min-width:900px){
-  .arrow{display:block}
 }
 
 /* PUBLICITAR */
@@ -265,12 +242,11 @@ body{
 <!-- RADIO -->
 <div class="radio-box">
 
-  <!-- EN VIVO -->
-  <div class="en-vivo"><div class="dot"></div> EN VIVO</div>
-
-  <!-- TÍTULO -->
   <h2 class="radio-title">Radio Imagen™</h2>
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
+
+  <!-- EN VIVO AHORA DEBAJO DEL LOGO -->
+  <div class="en-vivo"><div class="dot"></div> EN VIVO</div>
 
   <!-- SONANDO AHORA -->
   <div class="sonando-now" id="sonandoNow">🎵 Sonando ahora: cargando...</div>
@@ -300,54 +276,40 @@ body{
   </div>
 </div>
 
-<!-- PUBLICIDAD -->
+<!-- ESPACIO PUBLICITARIO -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
-<div class="carrusel-box">
-  <span class="arrow left" onclick="mover(-1)">❮</span>
-  <img src="https://iili.io/fHzN1Qn.md.png" class="carrusel-img" id="carruselImg">
-  <span class="arrow right" onclick="mover(1)">❯</span>
-</div>
-
-<!-- PUBLICIDAD: TÍO SERGIO -->
-<div class="carrusel-box">
-  <img src="https://iili.io/fHzN1Qn.md.png" class="carrusel-img" style="margin-bottom:15px;">
-  <h3 style="font-family:'Montserrat';color:#ff00ff;font-size:1.5em;margin-bottom:10px;text-shadow:0 0 12px #ff00ff;">
-    TÍO SERGIO™ – El lugar de los mayores
-  </h3>
-  <p style="color:#eaeaea;font-size:1em;line-height:1.6em;margin-bottom:20px;">
-    Toda la música que escuchás en <strong>Radio Imagen™</strong>
-    la vivís en <strong>TÍO SERGIO™</strong> cada fin de semana.
-    Shows, bandas, fiesta y la mejor energía tropical.
+<!-- PUBLICIDAD TÍO SERGIO -->
+<div class="public-box">
+  <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">TÍO SERGIO™ – El lugar de los mayores</h3>
+  <p style="color:#eaeaea;line-height:1.6em;">
+    Toda la música que escuchás en <b>Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.<br>
+    Shows en vivo, fiesta, DJs, ambiente tropical y la mejor energía.
   </p>
   <a href="https://tio-sergio.onrender.com" target="_blank"
-    style="display:inline-block;padding:12px 35px;background:linear-gradient(135deg,#ff00ff,#b300ff);border-radius:40px;text-decoration:none;color:white;font-family:'Montserrat';">
-    👉 Ir al sitio TÍO SERGIO™
+     style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#ff00ff,#b300ff);padding:12px 30px;border-radius:40px;text-decoration:none;color:#fff;">
+     👉 Ir al sitio TÍO SERGIO™
   </a>
 </div>
 
-<!-- PUBLICIDAD: MMG -->
-<div class="carrusel-box" style="margin-top:35px;">
-  <img src="https://iili.io/fHIgKuf.md.jpg" class="carrusel-img">
-  <h3 style="font-family:'Montserrat';color:#00ffff;font-size:1.5em;margin:15px 0;text-shadow:0 0 12px #00ffff;">
-    MMG – Manager Music Group™
-  </h3>
-  <p style="color:#eaeaea;font-size:1em;line-height:1.6em;margin-bottom:20px;">
-    ¿Querés tener a los artistas de Radio Imagen™ en tu fiesta o evento?<br>
-    Contratalos directamente con <strong>MMG – Manager Music Group™</strong>.
-    Representación oficial, bandas tropicales, shows y más.
+<!-- PUBLICIDAD MMG -->
+<div class="public-box">
+  <h3 style="color:#00ffff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">MMG – Manager Music Group™</h3>
+  <p style="color:#eaeaea;line-height:1.6em;">
+    ¿Querés tener a los artistas de Radio Imagen™ en tu evento?<br>
+    Contratalos directo desde <b>MMG™</b>.
   </p>
   <a href="https://mmg-contrataciones.onrender.com" target="_blank"
-    style="display:inline-block;padding:12px 35px;background:linear-gradient(135deg,#00ffff,#0099cc);border-radius:40px;text-decoration:none;color:black;font-weight:600;">
-    👉 Ir al sitio MMG™
+     style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#00ffff,#0099cc);padding:12px 30px;border-radius:40px;text-decoration:none;color:#000;font-weight:600;">
+     👉 Ir al sitio MMG™
   </a>
 </div>
 
-<!-- PUBLICITAR -->
+<!-- PUBLICITAR EN RADIO IMAGEN -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">PUBLICITÁ EN RADIO IMAGEN™</h2>
   <p style="color:white;margin-top:10px;">
-    Llegá a miles de oyentes al instante. Difusión profesional para tu negocio, producto o evento.
+    Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
   <a class="publicitar-btn"
      href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
@@ -402,18 +364,6 @@ document.getElementById("likeBtn").onclick = ()=>{
   lk++; localStorage.setItem("likesRadio",lk);
   document.getElementById("likeCount").textContent = lk;
 };
-
-/* CARRUSEL */
-let imgs = [
-  "https://iili.io/fHzN1Qn.md.png",
-  "https://iili.io/fHIgKuf.md.jpg"
-];
-let pos = 0;
-function mover(n){
-  pos = (pos+n+imgs.length)%imgs.length;
-  document.getElementById("carruselImg").src = imgs[pos];
-}
-setInterval(()=>mover(1),6000);
 
 /* HORA Y FECHA */
 function actHora(){
