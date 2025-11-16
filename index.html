@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#00ffff">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght:400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -33,17 +33,17 @@ body{
   src:url('AMADEUS_.TTF');
 }
 
-/* Pulso para el texto RADIO IMAGEN en la sección publicitar */
-.neonPulse{
+/* 🔥 NEÓN PULSANTE */
+.neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   background-size:350%;
-  animation:neonImg 6s linear infinite;
+  animation:neonMove 6s linear infinite;
 }
-@keyframes neonImg{
-  from{background-position:0%}
-  to{background-position:100%}
+@keyframes neonMove{
+  0%{background-position:0%}
+  100%{background-position:100%}
 }
 
 /* EN VIVO */
@@ -101,23 +101,22 @@ body{
   box-shadow:0 0 25px #00ffff;
 }
 
-/* 🔥 Título Radio Imagen con Amadeus */
+/* Título Radio Imagen */
 .radio-title{
   font-family:'Amadeus';
   font-size:3em;
-  background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-size:300%;
-  animation:neon 6s linear infinite;
 }
-@keyframes neon{
-  from{background-position:0%}
-  to{background-position:100%}
+.radio-title .neon-pulse{
+  display:inline-block;
 }
 
-.radio-logo{width:180px;margin:15px auto 0;display:block}
+.radio-logo{
+  width:180px;
+  margin:15px auto 0;
+  display:block;
+}
 
+/* OYENTES */
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
   white-space:nowrap;
@@ -194,6 +193,8 @@ body{
   border-radius:20px;
   box-shadow:0 0 18px #00ffff;
 }
+
+/* PUBLICITAR */
 .publicitar-box{
   margin-top:50px;
   padding:30px 20px;
@@ -208,6 +209,15 @@ body{
   font-size:1.9em;
   margin-bottom:10px;
 }
+/* Línea Radio Imagen pulsante */
+.publicitar-title .neon-pulse{
+  font-family:'Amadeus';
+  font-size:1.4em;
+  display:block;
+  margin-top:5px;
+}
+
+/* BOTON PUBLICITAR */
 .publicitar-btn{
   margin-top:15px;
   display:inline-block;
@@ -220,13 +230,13 @@ body{
 
 /* FOOTER */
 .footer{
-  margin-top:40px;
+  margin-top:50px;
   color:#aaa;
   font-size:1em;
-  line-height:1.4em;
+  line-height:1.5em;
 }
 .footer img{
-  width:22px;
+  width:26px;
   vertical-align:middle;
   margin-left:6px;
 }
@@ -242,7 +252,7 @@ body{
 
 <div class="radio-box">
 
-  <h2 class="radio-title">Radio Imagen™</h2>
+  <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
 
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
 
@@ -296,19 +306,17 @@ body{
   </a>
 </div>
 
+<!-- 🔥 PUBLICITAR EN… (AHORA EN DOS LÍNEAS + PULSO) -->
 <div class="publicitar-box">
-
-  <!-- Texto modificado con AMADEUS + pulso multicolor -->
   <h2 class="publicitar-title">
-    PUBLICITÁ EN 
-    <span class="neonPulse" style="font-family:'Amadeus'; font-size:1.4em;">
-      Radio Imagen™
-    </span>
+    PUBLICITÁ EN
+    <span class="neon-pulse">Radio Imagen™</span>
   </h2>
 
   <p style="color:white;margin-top:10px;">
     Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
+
   <a class="publicitar-btn"
      href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
      target="_blank">
@@ -316,12 +324,13 @@ body{
   </a>
 </div>
 
-<!-- ⭐ FOOTER REORGANIZADO -->
+<!-- ⭐ FOOTER NUEVO – COMO PEDISTE -->
 <p class="footer">
   Creado y diseñado por<br>
-  <a href="https://ciborg347.onrender.com" style="color:#00ffff; font-size:1.2em; font-weight:600;">
-    CIBORG347™ <img src="https://iili.io/fHuNsWP.png">
-  </a>
+  <span style="font-family:'Amadeus'; font-size:1.3em; color:#00ffff;">
+    CIBORG347™ 
+    <img src="https://iili.io/fHuNsWP.png">
+  </span>
 </p>
 
 <script>
@@ -360,7 +369,7 @@ async function cargarClima(){
     let lat = ip.latitude, lon = ip.longitude;
 
     let r = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+  `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
     ).then(x=>x.json());
 
     let t = r.current_weather.temperature;
