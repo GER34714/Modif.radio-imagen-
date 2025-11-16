@@ -88,7 +88,7 @@ body{
   box-shadow:0 0 25px #00ffff;
 }
 
-/* 🔥 Título Radio Imagen con fuente Amadeus */
+/* 🔥 Título Radio Imagen con Amadeus */
 .radio-title{
   font-family:'Amadeus';
   font-size:3em;
@@ -211,11 +211,10 @@ body{
   color:#aaa;
   font-size:1em;
 }
-
 .footer img{
   width:22px;
   vertical-align:middle;
-  margin-right:6px;
+  margin-left:6px;
 }
 </style>
 </head>
@@ -229,7 +228,6 @@ body{
 
 <div class="radio-box">
 
-  <!-- TÍTULO con Amadeus -->
   <h2 class="radio-title">Radio Imagen™</h2>
 
   <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
@@ -251,8 +249,7 @@ body{
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <!-- BOTÓN COMPARTIR -->
-  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
+  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen347.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
 
@@ -286,7 +283,12 @@ body{
 </div>
 
 <div class="publicitar-box">
-  <h2 class="publicitar-title">PUBLICITÁ EN RADIO IMAGEN™</h2>
+
+  <!-- 🔥 AQUÍ ESTÁ EL CAMBIO PEDIDO -->
+  <h2 class="publicitar-title">
+    PUBLICITÁ EN <span style="font-family:'Amadeus'; font-size:1.2em;">Radio Imagen™</span>
+  </h2>
+
   <p style="color:white;margin-top:10px;">
     Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
@@ -299,8 +301,11 @@ body{
 
 <!-- ⭐ FAVICON + CRÉDITO -->
 <p class="footer">
-  <img src="https://iili.io/fHuNsWP.png">
-  Creado y diseñado por <a href="https://ciborg347.onrender.com" style="color:#00ffff;">CIBORG347™</a>
+  Creado y diseñado por 
+  <a href="https://ciborg347.onrender.com" style="color:#00ffff;">
+    CIBORG347™ 
+    <img src="https://iili.io/fHuNsWP.png">
+  </a>
 </p>
 
 <script>
@@ -313,6 +318,7 @@ function cerrarPlayer(){
   document.getElementById("playButton").style.display="inline-block";
   document.getElementById("radioIframe").src=document.getElementById("radioIframe").src;
 }
+
 let oy = Math.floor(Math.random()*200)+420;
 function moverOy(){
   oy += Math.floor(Math.random()*7)-3;
