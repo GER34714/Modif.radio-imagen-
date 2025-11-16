@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#00ffff">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght:400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -27,13 +27,13 @@ body{
   padding:20px;
 }
 
-/* 🔥 Fuente Amadeus */
+/* 🔥 Fuente Amadeus SOLO para Radio Imagen */
 @font-face{
   font-family:'Amadeus';
   src:url('AMADEUS_.TTF');
 }
 
-/* 🔥 PULSO NEÓN PARA Radio Imagen™ */
+/* 🔥 PULSO NEÓN */
 .neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
@@ -72,6 +72,7 @@ body{
  100%{transform:scale(.9);opacity:.6}
 }
 
+/* TOP INFO */
 .top-info{
   max-width:600px;
   margin:10px auto 25px;
@@ -101,14 +102,11 @@ body{
   box-shadow:0 0 25px #00ffff;
 }
 
-/* Título Radio Imagen */
+/* Título Radio Imagen™ */
 .radio-title{
   font-family:'Amadeus';
   font-size:3em;
 }
-.radio-title span{display:inline-block}
-
-/* Moving neon effect applied separately */
 .radio-title .neon-pulse{
   display:inline-block;
 }
@@ -131,6 +129,7 @@ body{
  to{transform:translateX(-100%)}
 }
 
+/* BOTÓN PLAY */
 .play-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#ff0080);
@@ -160,7 +159,7 @@ body{
   color:#fff;cursor:pointer;
 }
 
-/* BOTÓN COMPARTIR */
+/* COMPARTIR */
 .share-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#005eff);
@@ -170,12 +169,11 @@ body{
   color:#000;
   font-size:1.1em;
   font-weight:600;
-  cursor:pointer;
   text-decoration:none;
   display:inline-block;
 }
 
-/* PUBLICIDAD */
+/* SECCIÓN PUBLICIDAD */
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;
@@ -193,25 +191,29 @@ body{
   box-shadow:0 0 18px #00ffff;
 }
 
-/* PUBLICITAR */
+/* PUBLICITAR EN */
 .publicitar-box{
   margin-top:50px;
   padding:30px 20px;
   border-radius:20px;
-  max-width:600px;margin-left:auto;margin-right:auto;
+  max-width:600px;
+  margin-left:auto;margin-right:auto;
   background:rgba(0,0,0,.7);
   box-shadow:0 0 20px #ff00ff;
 }
+
 .publicitar-title{
   font-family:'Montserrat';
   color:#ff00ff;
   font-size:1.9em;
   margin-bottom:10px;
+  line-height:1.2em;
 }
-
 .publicitar-title .neon-pulse{
   font-family:'Amadeus';
-  font-size:1.3em;
+  font-size:1.4em;
+  display:block;
+  margin-top:5px;
 }
 
 /* BOTÓN PUBLICITAR */
@@ -282,7 +284,7 @@ body{
   <img src="https://iili.io/fHuARLP.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
   <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">TÍO SERGIO™ – El lugar de los mayores</h3>
   <p style="color:#eaeaea;line-height:1.6em;">
-    Toda la música que escuchás en <b>Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.
+    Toda la música que escuchás en <b style="font-family:'Amadeus'">Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.
   </p>
   <a href="https://tio-sergio.onrender.com" target="_blank"
      style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#ff00ff,#b300ff);padding:12px 30px;border-radius:40px;text-decoration:none;color:#fff;">
@@ -294,7 +296,7 @@ body{
   <img src="https://iili.io/fHuRH6F.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
   <h3 style="color:#00ffff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">MMG – Manager Music Group™</h3>
   <p style="color:#eaeaea;line-height:1.6em;">
-    ¿Querés tener a los artistas de Radio Imagen™ en tu evento?<br>
+    ¿Querés tener a los artistas de <b style="font-family:'Amadeus'">Radio Imagen™</b> en tu evento?<br>
     Contratalos directo desde <b>MMG™</b>.
   </p>
   <a href="https://mmg-contrataciones.onrender.com" target="_blank"
@@ -303,14 +305,17 @@ body{
   </a>
 </div>
 
+<!-- 🔥 PUBLICITAR EN – DOS LÍNEAS + PULSO -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
-    PUBLICITÁ EN <span class="neon-pulse">Radio Imagen™</span>
+    PUBLICITÁ EN
+    <span class="neon-pulse">Radio Imagen™</span>
   </h2>
 
   <p style="color:white;margin-top:10px;">
     Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
+
   <a class="publicitar-btn"
      href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
      target="_blank">
@@ -318,10 +323,10 @@ body{
   </a>
 </div>
 
-<!-- ⭐ FOOTER NUEVO – COMO PEDISTE -->
+<!-- ⭐ FOOTER – CIBORG SIN AMADEUS -->
 <p class="footer">
   Creado y diseñado por<br>
-  <span style="font-family:'Amadeus'; font-size:1.3em; color:#00ffff;">
+  <span style="font-family:'Poppins'; font-weight:600; font-size:1.2em; color:#00ffff;">
     CIBORG347™ 
     <img src="https://iili.io/fHuNsWP.png">
   </span>
