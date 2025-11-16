@@ -33,6 +33,19 @@ body{
   src:url('AMADEUS_.TTF');
 }
 
+/* Pulso para el texto RADIO IMAGEN en la sección publicitar */
+.neonPulse{
+  background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:350%;
+  animation:neonImg 6s linear infinite;
+}
+@keyframes neonImg{
+  from{background-position:0%}
+  to{background-position:100%}
+}
+
 /* EN VIVO */
 .en-vivo{
   display:inline-flex;
@@ -210,6 +223,7 @@ body{
   margin-top:40px;
   color:#aaa;
   font-size:1em;
+  line-height:1.4em;
 }
 .footer img{
   width:22px;
@@ -284,9 +298,12 @@ body{
 
 <div class="publicitar-box">
 
-  <!-- 🔥 AQUÍ ESTÁ EL CAMBIO PEDIDO -->
+  <!-- Texto modificado con AMADEUS + pulso multicolor -->
   <h2 class="publicitar-title">
-    PUBLICITÁ EN <span style="font-family:'Amadeus'; font-size:1.2em;">Radio Imagen™</span>
+    PUBLICITÁ EN 
+    <span class="neonPulse" style="font-family:'Amadeus'; font-size:1.4em;">
+      Radio Imagen™
+    </span>
   </h2>
 
   <p style="color:white;margin-top:10px;">
@@ -299,12 +316,11 @@ body{
   </a>
 </div>
 
-<!-- ⭐ FAVICON + CRÉDITO -->
+<!-- ⭐ FOOTER REORGANIZADO -->
 <p class="footer">
-  Creado y diseñado por 
-  <a href="https://ciborg347.onrender.com" style="color:#00ffff;">
-    CIBORG347™ 
-    <img src="https://iili.io/fHuNsWP.png">
+  Creado y diseñado por<br>
+  <a href="https://ciborg347.onrender.com" style="color:#00ffff; font-size:1.2em; font-weight:600;">
+    CIBORG347™ <img src="https://iili.io/fHuNsWP.png">
   </a>
 </p>
 
