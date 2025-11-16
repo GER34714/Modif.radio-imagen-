@@ -5,47 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎧 Radio Imagen™ | En Vivo 24hs</title>
 
+<!-- ICONOS -->
 <link rel="icon" type="image/png" href="https://iili.io/KZ3YpR4.md.png">
 <link rel="shortcut icon" href="https://iili.io/KZ3YpR4.md.png" type="image/png">
 
+<!-- META -->
 <meta property="og:title" content="Radio Imagen™ | Música, difusión y buena vibra 24hs 🎵">
-<meta property="og:description" content="En vivo 24hs – Sonando ahora, clima, publicidad y más.">
+<meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música sin pausas, difusión, entrevistas y buena energía. Escuchanos en vivo ahora 🎧">
 <meta property="og:image" content="https://iili.io/KZ3YpR4.md.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://radioimagen347.onrender.com">
 <meta name="theme-color" content="#00ffff">
 
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
-@font-face {
-  font-family: 'Amadeus';
-  src: url('AMADEUS_.TTF') format('truetype');
+/* BODY */
+body{
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#0ff;
+  text-align:center;
+  padding:20px;
+  overflow-x:hidden;
+
+  /* FONDO FIJO PARALLAX */
+  background-image:url('https://iili.io/fHT1BPp.md.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
 }
 
-/* Fondo */
-body {
-  background: url('https://iili.io/fHT1BPp.md.jpg') center center fixed;
-  background-size: cover;
-  font-family: 'Poppins', sans-serif;
-  color: #0ff;
-  text-align: center;
-  padding: 20px;
-  overflow-x: hidden;
-}
-
-/* Caja principal */
-.radio-box {
-  background: rgba(0,0,0,0.78);
-  border-radius: 25px;
-  padding: 40px 30px;
-  max-width: 650px;
-  margin: 30px auto;
-  box-shadow: 0 0 25px #00ffff;
-  backdrop-filter: blur(4px);
-}
-
-/* EN VIVO 🔴 */
+/* EN VIVO ⚡ */
 .en-vivo {
   display: inline-flex;
   align-items: center;
@@ -56,9 +52,11 @@ body {
   border-radius: 25px;
   color: #ff0033;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
   font-weight: 600;
   text-shadow: 0 0 8px #ff0033;
-  margin-bottom: 12px;
+  box-shadow: 0 0 12px rgba(255,0,0,0.5);
+  margin-bottom: 15px;
 }
 
 .en-vivo .dot {
@@ -70,204 +68,256 @@ body {
 }
 
 @keyframes pulseLive {
-  0%,100% { transform: scale(0.9); opacity: .7;}
-  50% { transform: scale(1.3); opacity: 1;}
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.7; }
 }
 
-/* Título */
-.radio-title {
-  font-family: 'Amadeus', sans-serif;
-  font-size: 2.8em;
-  background: linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 300%;
-  animation: neonFlow 6s infinite linear;
+/* ---------------- CLIMA / HORA ---------------- */
+.top-info{
+  max-width:600px;
+  margin:10px auto 25px;
+  padding:15px 20px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.6);
+  box-shadow:0 0 15px #00ffff;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-family:'Montserrat',sans-serif;
 }
 
-@keyframes neonFlow {
-  0% {background-position: 0%;}
-  100% {background-position: 100%;}
+.clima-line{
+  font-size:1.1em;
+  color:#00ffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  text-shadow:0 0 10px #00ffff;
 }
 
-/* Sonando ahora */
-.sonando {
-  margin-top: 10px;
-  font-size: 1.2em;
-  font-weight: 600;
-  text-shadow: 0 0 12px #00ffff;
+.hora-line{
+  font-size:1em;
+  color:#fff;
+  opacity:.85;
 }
 
-/* Oyentes ticker */
-.ticker {
-  margin-top: 15px;
-  background: rgba(0,0,0,0.4);
-  padding: 10px 10px;
-  border-radius: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 1.1em;
+/* Caja principal */
+.radio-box{
+  background:rgba(0,0,0,0.8);
+  padding:50px 30px;
+  border-radius:25px;
+  max-width:600px;
+  margin:40px auto;
+  box-shadow:0 0 20px #00ffff;
 }
 
-.ticker span {
-  display: inline-block;
-  animation: scroll 12s linear infinite;
+/* Título con Amadeus */
+@font-face {
+  font-family: 'Amadeus';
+  src: url('AMADEUS_.TTF') format('truetype');
 }
 
-@keyframes scroll {
-  0% {transform: translateX(100%);}
-  100% {transform: translateX(-100%);}
+.radio-title{
+  font-family:'Amadeus',sans-serif;
+  font-size:2.6em;
+  letter-spacing:1px;
+  margin-bottom:10px;
+  background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-size:300%;
+  animation:neonFlow 6s linear infinite;
+}
+
+@keyframes neonFlow{
+  from{background-position:0%;}
+  to{background-position:100%;}
+}
+
+/* Logo */
+.radio-logo{
+  width:180px;
+  margin:15px auto;
+  display:block;
+}
+
+/* MARQUEE */
+.marquee-container{
+  margin-top:15px;
+  overflow:hidden;
+  width:100%;
+}
+.marquee{
+  display:inline-block;
+  white-space:nowrap;
+  font-size:1.2em;
+  font-weight:600;
+  padding-top:5px;
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
+  animation:scrollText 14s linear infinite;
+}
+@keyframes scrollText{
+  from{transform:translateX(100%);}
+  to{transform:translateX(-100%);}
 }
 
 /* Subtexto */
-.radio-sub {
-  margin-top: 20px;
-  color: #fff;
-  font-size: 1.1em;
+.radio-sub{
+  color:#fff;
+  font-size:1.1em;
+  margin-top:20px;
 }
 
 /* Botón */
-.play-btn {
-  background: linear-gradient(135deg,#00ffff,#ff0080);
-  border: none;
-  padding: 15px 50px;
-  font-size: 1.3em;
-  border-radius: 50px;
-  margin-top: 20px;
-  cursor: pointer;
-  color: #000;
-  font-weight: 600;
-  transition: .3s;
+.play-btn{
+  margin-top:20px;
+  background:linear-gradient(135deg,#00ffff,#ff0080);
+  border:none;
+  color:#000;
+  font-size:1.3em;
+  padding:15px 50px;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 0 15px #00ffff;
 }
-
-.play-btn:hover {
-  transform: scale(1.06);
+.play-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ff00ff;
 }
 
 /* Player */
-.player-box {
-  display: none;
-  margin-top: 25px;
+.player-box{
+  display:none;
+  animation:fadeIn 1s forwards;
+  margin-top:30px;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-.player-container {
-  width: 120px;
-  height: 100px;
-  margin: auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 18px #00ffff;
+.player-container{
+  width:120px;
+  height:100px;
+  margin:auto;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 0 10px #00ffff;
+}
+.player-container iframe{
+  width:100%;
+  height:300px;
+  border:none;
+  transform:translateY(-200px);
 }
 
-.close-btn {
-  background: #ff0080;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 15px;
-  border-radius: 10px;
-  color: #fff;
-  cursor: pointer;
+/* Botón cerrar */
+.close-btn{
+  margin-top:15px;
+  background:#ff0080;
+  border:none;
+  color:#fff;
+  padding:10px 25px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-/* Clima - hora */
-.clima-box {
-  margin-top: 20px;
-  font-size: 1em;
-  color: #fff;
-  text-shadow: 0 0 8px #00ffff;
+/* ❤️ Me gusta */
+.like-box{
+  margin-top:20px;
+  font-size:1.2em;
+  color:#fff;
+}
+.like-btn{
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:2em;
+  color:#ff0077;
+  text-shadow:0 0 10px #ff0077;
+}
+.like-count{
+  margin-left:10px;
+  font-size:1.2em;
+  color:#00ffff;
 }
 
-/* Likes */
-.like-box {
-  margin-top: 20px;
-  font-size: 1.1em;
+/* ESPACIO PUBLICITARIO */
+.publicidad-title{
+  margin-top:60px;
+  margin-bottom:15px;
+  font-family:'Montserrat',sans-serif;
+  font-size:2em;
+  font-weight:700;
+  color:#00ffff;
+  text-shadow:0 0 12px #00ffff;
 }
 
-.like-btn {
-  font-size: 1.8em;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #ff004c;
-  text-shadow: 0 0 12px #ff004c;
-}
-.like-count {
-  font-size: 1.3em;
-  color: white;
-  font-weight: 600;
+.carrusel-box{
+  max-width:600px;
+  margin:20px auto;
+  padding:20px;
+  background:rgba(0,0,0,0.6);
+  border-radius:20px;
+  box-shadow:0 0 18px #00ffff;
 }
 
-/* Publicidad */
-.publicidad-box {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 25px;
-  background: rgba(0,0,0,0.75);
-  border-radius: 25px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 18px #ff00ff;
+.carrusel-img{
+  width:100%;
+  border-radius:15px;
 }
 
-.publicidad-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.9em;
-  margin-bottom: 15px;
-  color: #00ffff;
+/* PUBLICITÁ EN RADIO IMAGEN */
+.publicitar-box{
+  margin-top:60px;
+  padding:35px 20px;
+  border-radius:20px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  background:rgba(0,0,0,0.7);
+  box-shadow:0 0 20px #ff00ff;
 }
 
-/* Carrusel */
-.carousel {
-  margin-top: 20px;
-  overflow: hidden;
-  border-radius: 20px;
-  position: relative;
+.publicitar-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.9em;
+  font-weight:700;
+  color:#ff00ff;
 }
 
-.carousel-track {
-  display: flex;
-  width: 200%;
-  animation: slide 10s infinite linear;
-}
-
-.carousel img {
-  width: 100%;
-}
-
-@keyframes slide {
-  0% { transform: translateX(0);}
-  50% { transform: translateX(-100%);}
-  100% { transform: translateX(0);}
-}
-
-/* Publicitar */
-.promo-box {
-  margin-top: 50px;
-  padding: 30px;
-  background: rgba(0,0,0,0.65);
-  border-radius: 20px;
-  box-shadow: 0 0 15px #00ffff;
-}
-
-.promo-btn {
-  background: linear-gradient(135deg,#25D366,#128C7E);
-  padding: 12px 35px;
-  border-radius: 40px;
-  margin-top: 15px;
-  color: white;
-  font-size: 1.2em;
-  text-decoration: none;
+.publicitar-btn{
+  margin-top:20px;
+  display:inline-block;
+  padding:12px 35px;
+  border-radius:40px;
+  font-size:1.1em;
+  text-decoration:none;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;
 }
 
 /* Footer */
-.footer {
-  margin: 40px 0 20px;
-  color: #ccc;
+.footer{
+  margin-top:40px;
+  color:#777;
+  font-size:0.9em;
 }
-
 </style>
 </head>
 <body>
 
+<!-- 🔥 CLIMA + HORA + FECHA -->
+<div class="top-info">
+  <div class="clima-line" id="clima">Cargando clima...</div>
+  <div class="hora-line" id="hora"></div>
+  <div class="hora-line" id="fecha"></div>
+</div>
+
+<!-- 🔥 RADIO -->
 <div class="radio-box">
 
   <!-- EN VIVO -->
@@ -276,125 +326,153 @@ body {
     EN VIVO
   </div>
 
-  <!-- TÍTULO -->
   <h2 class="radio-title">Radio Imagen™</h2>
+  <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
 
-  <!-- SONANDO AHORA -->
-  <div class="sonando" id="sonandoNow">🎵 Sonando ahora: Cargando...</div>
-
-  <!-- OYENTES TICKER -->
-  <div class="ticker">
-    <span id="oyentesTicker">Oyentes en este momento: 500</span>
+  <!-- MARQUEE -->
+  <div class="marquee-container">
+    <div class="marquee" id="marqueeText">
+      Oyentes en este momento: 0000
+    </div>
   </div>
 
-  <p class="radio-sub">En vivo las 24 hs – Música, difusión y buena vibra 🎵</p>
+  <p class="radio-sub">En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- Botón reproducir -->
+  <!-- BOTÓN PLAY -->
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
 
-  <!-- Player -->
+  <!-- PLAYER -->
   <div class="player-box" id="playerBox">
     <div class="player-container">
-      <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/" scrolling="no"></iframe>
+      <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
     </div>
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <!-- Clima -->
-  <div class="clima-box" id="climaBox">Cargando clima...</div>
-
-  <!-- Likes -->
+  <!-- ❤️ ME GUSTA -->
   <div class="like-box">
-    <button class="like-btn" onclick="sumarLike()">❤️</button>
-    <span class="like-count" id="likeCount">1382</span>
+    <button class="like-btn" id="likeBtn">❤️</button>
+    <span class="like-count" id="likeCount">1382</span> Me gusta
   </div>
+
 </div>
 
-<!-- PUBLICIDAD -->
-<div class="publicidad-box">
-  <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
+<!-- ESPACIO PUBLICITARIO -->
+<h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
-  <div class="carousel">
-    <div class="carousel-track">
-      <img src="https://iili.io/fHzN1Qn.md.png" alt="Tio Sergio">
-      <img src="https://iili.io/fHIgKuf.md.jpg" alt="MMG">
-    </div>
-  </div>
+<div class="carrusel-box">
+  <img src="https://iili.io/fHIgKuf.md.jpg" class="carrusel-img" id="imgCarrusel">
 </div>
 
-<!-- PUBLICITAR -->
-<div class="promo-box">
-  <h2 style="color:white;">PUBLICITAR EN RADIO IMAGEN™</h2>
-  <p style="color:white;">
-    Llegá a miles de oyentes con tu marca, evento o producto.  
-    Difusión real, profesional y 100% local.
-  </p>
-  <a class="promo-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">
+<!-- PUBLICITÁ EN RADIO IMAGEN -->
+<div class="publicitar-box">
+  <h2 class="publicitar-title">PUBLICITÁ EN RADIO IMAGEN™</h2>
+  <a class="publicitar-btn" href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!" target="_blank">
     💬 Quiero publicitar ahora
   </a>
 </div>
 
-<p class="footer">Diseñado por <a href="https://ciborg347.onrender.com" target="_blank" style="color:#0ff;">Ciborg 347™</a></p>
+<p class="footer">
+  Diseñado y desarrollado por  
+  <a href="https://ciborg347.onrender.com" target="_blank">Ciborg347™</a>
+</p>
 
 <script>
 /* PLAYER */
-const playBtn = document.getElementById('playButton');
-const playerBox = document.getElementById('playerBox');
-const radioIframe = document.getElementById('radioIframe');
-
-function abrirPlayer(){ playerBox.style.display='block'; playBtn.style.display='none'; }
-function cerrarPlayer(){ playerBox.style.display='none'; playBtn.style.display='inline-block'; radioIframe.src=radioIframe.src; }
-
-/* SONANDO AHORA */
-async function cargarTema() {
-  try {
-    let res = await fetch("https://zeno.fm/api/play/nowplaying/radio-imagen");
-    let data = await res.json();
-    document.getElementById("sonandoNow").textContent =
-      `🎵 Sonando ahora: ${data.artist} – ${data.title}`;
-  } catch {
-    document.getElementById("sonandoNow").textContent =
-      "🎵 Sonando ahora: Información no disponible";
-  }
+function abrirPlayer(){
+  document.getElementById("playerBox").style.display="block";
+  document.getElementById("playButton").style.display="none";
 }
-setInterval(cargarTema, 5000);
-cargarTema();
 
-/* OYENTES */
-let oyentes = Math.floor(Math.random()*200)+420;
+function cerrarPlayer(){
+  document.getElementById("playerBox").style.display="none";
+  document.getElementById("playButton").style.display="inline-block";
+  document.getElementById("radioIframe").src=document.getElementById("radioIframe").src;
+}
+
+/* OYENTES DINÁMICOS */
+let oyentes = Math.floor(Math.random()*200)+400;
+
 function moverOyentes(){
-  let mov = Math.floor(Math.random()*10)-4;
-  oyentes += mov;
-  if(oyentes < 350) oyentes = 350;
-  if(oyentes > 980) oyentes = 980;
-  document.getElementById("oyentesTicker").textContent =
-    `Oyentes en este momento: ${oyentes}`;
+  let cambio = Math.floor(Math.random()*7)-3;
+  oyentes += cambio;
+  if(oyentes < 320) oyentes = 320;
+  if(oyentes > 860) oyentes = 860;
+
+  document.getElementById("marqueeText").textContent =
+    "Oyentes en este momento: " + oyentes;
 }
-setInterval(moverOyentes, 2500);
+
+setInterval(moverOyentes, 1800);
 moverOyentes();
+
+/* LIKE ❤️ */
+let likeCount = localStorage.getItem("likesRadio") || 1382;
+document.getElementById("likeCount").textContent = likeCount;
+
+document.getElementById("likeBtn").onclick = ()=>{
+  likeCount++;
+  localStorage.setItem("likesRadio", likeCount);
+  document.getElementById("likeCount").textContent = likeCount;
+};
+
+/* CARRUSEL */
+const imagenes = [
+  "https://iili.io/fHIgKuf.md.jpg",
+  "https://iili.io/fHzbeBs.md.jpg"
+];
+let idx = 0;
+
+setInterval(()=>{
+  idx = (idx+1) % imagenes.length;
+  document.getElementById("imgCarrusel").src = imagenes[idx];
+}, 6000);
+
+/* HORA */
+function actualizarHora(){
+  const now = new Date();
+  document.getElementById("hora").textContent =
+    now.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  document.getElementById("fecha").textContent =
+    now.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
+}
+setInterval(actualizarHora,1000);
+actualizarHora();
 
 /* CLIMA */
 async function cargarClima(){
-  try {
-    let ip = await fetch("https://ipapi.co/json");
-    let data = await ip.json();
+  try{
+    const ip = await fetch("https://ipapi.co/json/").then(r=>r.json());
+    const ciudad = ip.city;
+    const lat = ip.latitude;
+    const lon = ip.longitude;
 
-    let clima = await fetch(`https://wttr.in/${data.city}?format=%t+%C`);
-    let txt = await clima.text();
+    const climaAPI = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+    ).then(r=>r.json());
 
-    document.getElementById("climaBox").textContent =
-      `📍 ${data.city} | 🌡️ ${txt}`;
-  } catch {
-    document.getElementById("climaBox").textContent = "Clima no disponible";
+    const temp = climaAPI.current_weather.temperature;
+    const codigo = climaAPI.current_weather.weathercode;
+
+    let estado = "Despejado";
+    let icono = "☀️";
+
+    if(codigo>=45 && codigo<=48){estado="Niebla";icono="🌫️";}
+    if(codigo>=51 && codigo<=57){estado="Llovizna";icono="🌦️";}
+    if(codigo>=61 && codigo<=67){estado="Lluvia";icono="🌧️";}
+    if(codigo>=71 && codigo<=77){estado="Nieve";icono="❄️";}
+    if(codigo>=80 && codigo<=82){estado="Chaparrones";icono="🌧️";}
+    if(codigo>=95){estado="Tormenta";icono="⛈️";}
+
+    document.getElementById("clima").innerHTML =
+      `${icono} ${ciudad} – ${temp}°C – ${estado}`;
+
+  }catch(e){
+    document.getElementById("clima").textContent = "Clima no disponible";
   }
 }
-cargarClima();
 
-/* LIKE */
-function sumarLike(){
-  let n = document.getElementById("likeCount");
-  n.textContent = parseInt(n.textContent) + 1;
-}
+cargarClima();
 </script>
 
 </body>
