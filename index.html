@@ -16,6 +16,9 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;400;600&family=Montserrat:wght:400;600;700&display=swap" rel="stylesheet">
 
+<!-- 🔥 SWIPER CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -172,7 +175,6 @@ body{
   color:#fff;cursor:pointer;
 }
 
-/* COMPARTIR */
 .share-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#005eff);
@@ -186,61 +188,7 @@ body{
   display:inline-block;
 }
 
-/* SECCIÓN PUBLICIDAD */
-.publicidad-title{
-  font-family:'Montserrat';
-  font-size:2em;
-  color:#00ffff;
-  margin-top:40px;
-  margin-bottom:15px;
-  text-shadow:0 0 10px #00ffff;
-}
-.public-box{
-  background:rgba(0,0,0,.65);
-  max-width:600px;
-  margin:25px auto;
-  padding:25px 20px;
-  border-radius:20px;
-  box-shadow:0 0 18px #00ffff;
-}
-
-/* PUBLICITAR EN */
-.publicitar-box{
-  margin-top:50px;
-  padding:30px 20px;
-  border-radius:20px;
-  max-width:600px;
-  margin-left:auto;margin-right:auto;
-  background:rgba(0,0,0,.7);
-  box-shadow:0 0 20px #ff00ff;
-}
-
-.publicitar-title{
-  font-family:'Montserrat';
-  color:#ff00ff;
-  font-size:1.9em;
-  margin-bottom:10px;
-  line-height:1.2em;
-}
-.publicitar-title .neon-pulse{
-  font-family:'Amadeus';
-  font-size:1.4em;
-  display:block;
-  margin-top:5px;
-}
-
-/* BOTÓN PUBLICITAR */
-.publicitar-btn{
-  margin-top:15px;
-  display:inline-block;
-  padding:12px 35px;
-  background:linear-gradient(135deg,#25D366,#128C7E);
-  color:#fff;border-radius:40px;
-  text-decoration:none;
-  font-size:1.1em;
-}
-
-/* FOOTER */
+/* ⭐ FOOTER CLICKEABLE ⭐ */
 .footer{
   margin-top:50px;
   color:#aaa;
@@ -253,15 +201,61 @@ body{
   vertical-align:middle;
   margin-left:6px;
 }
-
-/* ♥ Hace TODO el footer clickeable */
 .footer-link{
   display:block;
   text-decoration:none;
   color:inherit;
 }
+
+/* ========================= SLIDER FULL WIDTH ========================= */
+.video-slider-section{
+  margin-top:60px;
+  padding:20px 0 60px;
+  background:rgba(0,0,0,.7);
+  box-shadow:0 0 25px #00ffff80 inset;
+}
+
+.slider-title{
+  font-family:'Amadeus';
+  font-size:2.4em;
+  margin-bottom:25px;
+}
+
+.swiper{
+  width:100%;
+  padding-bottom:40px;
+}
+
+.swiper-slide{
+  display:flex;
+  justify-content:center;
+}
+
+.video-slide{
+  width:90%;
+  max-width:550px;
+  aspect-ratio:16/9;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 0 25px #00ffffaa;
+}
+
+.video-slide iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.swiper-button-next, .swiper-button-prev{
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
+}
+.swiper-pagination-bullet{
+  background:#00ffff !important;
+}
 </style>
 </head>
+
 <body>
 
 <div class="top-info">
@@ -300,6 +294,55 @@ body{
 
 </div>
 
+<!-- ================= VIDEO SLIDER ================= -->
+<section class="video-slider-section">
+
+  <h2 class="slider-title neon-pulse">VIDEOS DESTACADOS</h2>
+
+  <div class="swiper">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <div class="video-slide">
+          <iframe src="https://www.youtube.com/embed/g9XH1by4Uio?autoplay=1&mute=1&controls=1&playsinline=1"></iframe>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="video-slide">
+          <iframe src="https://www.youtube.com/embed/1RWspCphiyI?autoplay=1&mute=1&controls=1&playsinline=1"></iframe>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="video-slide">
+          <iframe src="https://www.youtube.com/embed/gmj1ktdFOs8?autoplay=1&mute=1&controls=1&playsinline=1"></iframe>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="video-slide">
+          <iframe src="https://www.youtube.com/embed/Ij-lNWYQGiE?autoplay=1&mute=1&controls=1&playsinline=1"></iframe>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="video-slide">
+          <iframe src="https://www.youtube.com/embed/kq2g8Y3lkO0?autoplay=1&mute=1&controls=1&playsinline=1"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+  </div>
+</section>
+
+<!-- ================= PUBLICIDAD (TAL COMO ESTABA) ================= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
@@ -327,7 +370,7 @@ body{
   </a>
 </div>
 
-<!-- 🔥 PUBLICITAR EN – DOS LÍNEAS + PULSO -->
+<!-- 🔥 PUBLICITAR EN -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
     PUBLICITÁ EN
@@ -345,7 +388,7 @@ body{
   </a>
 </div>
 
-<!-- ⭐ FOOTER CLICKEABLE ENTERO ⭐ -->
+<!-- ⭐ FOOTER ⭐ -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
   <p class="footer">
     Creado y diseñado por<br>
@@ -356,7 +399,29 @@ body{
   </p>
 </a>
 
+<!-- 🔥 SWIPER JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
+const swiper = new Swiper('.swiper', {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  centeredSlides: true,
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    768: { slidesPerView: 1.2 },
+    1024: { slidesPerView: 1.5 }
+  }
+});
+
 function abrirPlayer(){
   document.getElementById("playerBox").style.display="block";
   document.getElementById("playButton").style.display="none";
