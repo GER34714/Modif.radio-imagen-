@@ -16,9 +16,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;400;600&family=Montserrat:wght:400;600;700&display=swap" rel="stylesheet">
 
-<!-- SWIPER -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -30,13 +27,13 @@ body{
   padding:20px;
 }
 
-/* Amadeus */
+/* 🔥 Fuente Amadeus SOLO para Radio Imagen */
 @font-face{
   font-family:'Amadeus';
   src:url('AMADEUS_.TTF');
 }
 
-/* Pulso general */
+/* 🔥 PULSO NEÓN GENERAL */
 .neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
@@ -49,7 +46,7 @@ body{
   100%{background-position:100%}
 }
 
-/* Pulso Ciborg */
+/* 🔥 PULSO NEÓN CIAN PARA CIBORG347 */
 .neon-cyan{
   background:linear-gradient(90deg,#00ffff,#00cccc,#00ffff);
   -webkit-background-clip:text;
@@ -62,7 +59,7 @@ body{
   100%{background-position:200%}
 }
 
-/* En vivo */
+/* EN VIVO */
 .en-vivo{
   display:inline-flex;
   align-items:center;
@@ -83,12 +80,12 @@ body{
   animation:pulse 1.2s infinite;
 }
 @keyframes pulse{
-0%{transform:scale(.9);opacity:.6}
-50%{transform:scale(1.3);opacity:1}
-100%{transform:scale(.9);opacity:.6}
+ 0%{transform:scale(.9);opacity:.6}
+ 50%{transform:scale(1.3);opacity:1}
+ 100%{transform:scale(.9);opacity:.6}
 }
 
-/* Top info */
+/* TOP INFO */
 .top-info{
   max-width:600px;
   margin:10px auto 25px;
@@ -108,7 +105,7 @@ body{
   opacity:.85;
 }
 
-/* Radio Box */
+/* RADIO BOX */
 .radio-box{
   background:rgba(0,0,0,.78);
   padding:40px 30px;
@@ -118,13 +115,18 @@ body{
   box-shadow:0 0 25px #00ffff;
 }
 
+/* Título Radio Imagen™ */
 .radio-title{
   font-family:'Amadeus';
   font-size:3em;
 }
+.radio-title .neon-pulse{
+  display:inline-block;
+}
+
 .radio-logo{width:180px;margin:15px auto 0;display:block}
 
-/* Oyentes */
+/* OYENTES */
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
   white-space:nowrap;
@@ -132,6 +134,7 @@ body{
   font-size:1.2em;
   font-weight:600;
   color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
   animation:scroll 14s linear infinite;
 }
 @keyframes scroll{
@@ -139,7 +142,7 @@ body{
  to{transform:translateX(-100%)}
 }
 
-/* Player */
+/* PLAY BUTTON */
 .play-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#ff0080);
@@ -148,73 +151,167 @@ body{
   font-size:1.3em;
   color:#000;font-weight:600;
 }
+.play-btn:hover{transform:scale(1.08)}
+
 .player-box{display:none;margin-top:25px}
-
-/* Video slider section */
-.video-slider-section{
-  margin-top:60px;
-  padding:30px 0 60px;
-  background:rgba(0,0,0,.65);
-  box-shadow:0 0 25px #00ffff70 inset;
+.player-container{
+  width:120px;height:100px;margin:auto;
+  overflow:hidden;border-radius:20px;
+  box-shadow:0 0 15px #00ffff;
+}
+.player-container iframe{
+  width:100%;height:300px;
+  transform:translateY(-200px);
+  border:none;
+}
+.close-btn{
+  margin-top:15px;
+  background:#ff0080;
+  padding:10px 20px;
+  border:none;border-radius:10px;
+  color:#fff;cursor:pointer;
 }
 
-.slider-title{
-  font-family:'Amadeus';
-  font-size:2.6em;
-  margin-bottom:25px;
+/* COMPARTIR */
+.share-btn{
+  margin-top:20px;
+  background:linear-gradient(135deg,#00ffff,#005eff);
+  padding:12px 30px;
+  border:none;
+  border-radius:40px;
+  color:#000;
+  font-size:1.1em;
+  font-weight:600;
+  text-decoration:none;
+  display:inline-block;
 }
 
-/* VIDEO MÁS GRANDE */
-.video-slide{
-  width:95%;
-  max-width:680px;
-  aspect-ratio:16/9;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 0 25px #00ffffaa;
+/* SECCIÓN PUBLICIDAD */
+.publicidad-title{
+  font-family:'Montserrat';
+  font-size:2em;
+  color:#00ffff;
+  margin-top:40px;
+  margin-bottom:15px;
+  text-shadow:0 0 10px #00ffff;
 }
-.video-slide iframe{
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-/* Publicidad (más chicos) */
 .public-box{
-  background:rgba(0,0,0,.55);
-  max-width:500px;
+  background:rgba(0,0,0,.65);
+  max-width:600px;
   margin:25px auto;
-  padding:18px 15px;
-  border-radius:18px;
-  box-shadow:0 0 14px #00ffff80;
-}
-.public-box img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:10px;
+  padding:25px 20px;
+  border-radius:20px;
+  box-shadow:0 0 18px #00ffff;
 }
 
-/* Footer */
+/* PUBLICITAR EN */
+.publicitar-box{
+  margin-top:50px;
+  padding:30px 20px;
+  border-radius:20px;
+  max-width:600px;
+  margin-left:auto;margin-right:auto;
+  background:rgba(0,0,0,.7);
+  box-shadow:0 0 20px #ff00ff;
+}
+
+.publicitar-title{
+  font-family:'Montserrat';
+  color:#ff00ff;
+  font-size:1.9em;
+  margin-bottom:10px;
+  line-height:1.2em;
+}
+.publicitar-title .neon-pulse{
+  font-family:'Amadeus';
+  font-size:1.4em;
+  display:block;
+  margin-top:5px;
+}
+
+/* BOTÓN PUBLICITAR */
+.publicitar-btn{
+  margin-top:15px;
+  display:inline-block;
+  padding:12px 35px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:#fff;border-radius:40px;
+  text-decoration:none;
+  font-size:1.1em;
+}
+
+/* FOOTER */
 .footer{
   margin-top:50px;
   color:#aaa;
+  font-size:1em;
+  line-height:1.5em;
   padding:20px 0;
 }
-.footer-link{display:block;text-decoration:none;color:inherit}
+.footer img{
+  width:26px;
+  vertical-align:middle;
+  margin-left:6px;
+}
 
+/* ♥ Hace TODO el footer clickeable */
+.footer-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ==== ESTILOS DEL WIDGET DE VIDEOS ==== */
+.videos-widget {
+  max-width:800px;
+  margin:40px auto;
+  padding:0 10px;
+}
+.videos-widget .video-main {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  margin-bottom: 15px;
+}
+.videos-widget .video-main iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #00ffff;
+}
+.videos-widget .thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.videos-widget .thumbnails img {
+  width: 120px;
+  height: 67px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+.videos-widget .thumbnails img:hover,
+.videos-widget .thumbnails img.selected {
+  border: 3px solid #00ffff;
+}
 </style>
 </head>
-
 <body>
 
-<!-- INFO -->
 <div class="top-info">
   <div class="clima-line" id="clima">Cargando clima...</div>
   <div class="hora-line" id="hora"></div>
   <div class="hora-line" id="fecha"></div>
 </div>
 
-<!-- RADIO BOX -->
 <div class="radio-box">
 
   <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
@@ -227,203 +324,103 @@ body{
     <div class="marquee" id="marqueeText">Oyentes en este momento: 500</div>
   </div>
 
-  <p>En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
+  <p class="radio-sub">En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
 
   <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
 
   <div class="player-box" id="playerBox">
-    <div style="width:120px;height:100px;margin:auto;overflow:hidden;border-radius:20px;box-shadow:0 0 15px #00ffff;">
+    <div class="player-container">
       <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
     </div>
-    <button class="close-btn" onclick="cerrarPlayer()" style="margin-top:10px;background:#ff0080;padding:10px 20px;border:none;border-radius:10px;color:#fff;">
-      ❌ Cerrar
-    </button>
+    <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <a class="share-btn"
-     href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com"
-     style="margin-top:20px;display:inline-block;background:linear-gradient(135deg,#00ffff,#005eff);padding:12px 30px;border-radius:40px;color:#000;font-weight:600;">
+  <a class="share-btn" 
+     href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
 
 </div>
 
-<!-- ================= SLIDER VIDEOS ================= -->
-<section class="video-slider-section">
-
-  <h2 class="slider-title neon-pulse">VIDEOS DESTACADOS</h2>
-
-  <div class="swiper">
-
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/g9XH1by4Uio?controls=1&playsinline=1"></iframe>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/1RWspCphiyI?controls=1&playsinline=1"></iframe>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/gmj1ktdFOs8?controls=1&playsinline=1"></iframe>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/Ij-lNWYQGiE?controls=1&playsinline=1"></iframe>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="video-slide">
-          <iframe src="https://www.youtube.com/embed/kq2g8Y3lkO0?controls=1&playsinline=1"></iframe>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
+<!-- === WIDGET DE VIDEOS YouTube === -->
+<div class="videos-widget" id="videosWidget">
+  <div class="video-main">
+    <iframe id="mainVideo" src="https://www.youtube.com/embed/Ij-lNWYQGiE" allowfullscreen></iframe>
   </div>
-</section>
-
-
-<!-- ===================== SEGUINOS EN YOUTUBE ===================== -->
-<section style="margin-top:60px; padding:30px 15px; background:rgba(0,0,0,.65); border-radius:20px; box-shadow:0 0 25px #00ffff70 inset;">
-
-  <h2 style="font-family:'Amadeus'; font-size:2.4em; margin-bottom:10px;" class="neon-pulse">
-    SEGUINOS EN YOUTUBE
-  </h2>
-
-  <h3 style="color:#fff; font-size:1.3em; margin-bottom:25px;">
-    “EL CANAL DE LAS ESTRELLAS OK”
-  </h3>
-
-  <div style="
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    max-width:1100px;
-    margin:auto;
-  ">
-
-    <a href="https://youtu.be/g9XH1by4Uio" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
-      <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg" style="width:100%;">
-    </a>
-
-    <a href="https://youtu.be/1RWspCphiyI" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
-      <img src="https://img.youtube.com/vi/1RWspCphiyI/hqdefault.jpg" style="width:100%;">
-    </a>
-
-    <a href="https://youtu.be/gmj1ktdFOs8" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
-      <img src="https://img.youtube.com/vi/gmj1ktdFOs8/hqdefault.jpg" style="width:100%;">
-    </a>
-
-    <a href="https://youtu.be/Ij-lNWYQGiE" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
-      <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg" style="width:100%;">
-    </a>
-
-    <a href="https://youtu.be/kq2g8Y3lkO0" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
-      <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg" style="width:100%;">
-    </a>
-
+  <div class="thumbnails">
+    <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg" data-video-id="Ij-lNWYQGiE" class="selected">
+    <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg" data-video-id="kq2g8Y3lkO0">
+    <img src="https://img.youtube.com/vi/gmj1ktdFOs8/hqdefault.jpg" data-video-id="gmj1ktdFOs8">
+    <img src="https://img.youtube.com/vi/1RWspCphiyI/hqdefault.jpg" data-video-id="1RWspCphiyI">
+    <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg" data-video-id="g9XH1by4Uio">
   </div>
+</div>
 
-</section>
-<!-- ===================== FIN SECCIÓN YOUTUBE ===================== -->
-
-
-<!-- ================= PUBLICIDAD REDUCIDA ================= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
-  <img src="https://iili.io/fHuARLP.md.jpg">
-  <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.4em;">TÍO SERGIO™</h3>
-  <p style="color:#eaeaea;font-size:.95em;">
-    Toda la música que escuchás en <b style="font-family:Amadeus;">Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.
+  <img src="https://iili.io/fHuARLP.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
+  <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">TÍO SERGIO™ – El lugar de los mayores</h3>
+  <p style="color:#eaeaea;line-height:1.6em;">
+    Toda la música que escuchás en <b style="font-family:'Amadeus'">Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.
   </p>
   <a href="https://tio-sergio.onrender.com" target="_blank"
-     style="display:inline-block;margin-top:10px;background:linear-gradient(135deg,#ff00ff,#b300ff);padding:10px 25px;border-radius:30px;text-decoration:none;color:#fff;">
-     👉 Ver sitio
+     style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#ff00ff,#b300ff);padding:12px 30px;border-radius:40px;text-decoration:none;color:#fff;">
+     👉 Ir al sitio TÍO SERGIO™
   </a>
 </div>
 
 <div class="public-box">
-  <img src="https://iili.io/fHuRH6F.md.jpg">
-  <h3 style="color:#00ffff;font-family:'Montserrat';font-size:1.4em;">MMG – Manager Music Group™</h3>
-  <p style="color:#eaeaea;font-size:.95em;">
-    Los artistas de <b style="font-family:Amadeus;">Radio Imagen™</b> para tu evento.
+  <img src="https://iili.io/fHuRH6F.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
+  <h3 style="color:#00ffff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">MMG – Manager Music Group™</h3>
+  <p style="color:#eaeaea;line-height:1.6em;">
+    ¿Querés tener a los artistas de <b style="font-family:'Amadeus'">Radio Imagen™</b> en tu evento?<br>
+    Contratalos directo desde <b>MMG™</b>.
   </p>
   <a href="https://mmg-contrataciones.onrender.com" target="_blank"
-     style="display:inline-block;margin-top:10px;background:linear-gradient(135deg,#00ffff,#0099cc);padding:10px 25px;border-radius:30px;text-decoration:none;color:#000;font-weight:600;">
-     👉 Ver sitio
+     style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#00ffff,#0099cc);padding:12px 30px;border-radius:40px;text-decoration:none;color:#000;font-weight:600;">
+     👉 Ir al sitio MMG™
   </a>
 </div>
 
-<div class="public-box" style="background:rgba(0,0,0,.7)">
-  <h2 style="font-size:1.6em;color:#ff00ff;">PUBLICITÁ EN <span class="neon-pulse">Radio Imagen™</span></h2>
-  <p style="color:white;margin-top:8px;font-size:.95em;">
-    Llegá a miles de oyentes reales.
+<!-- 🔥 PUBLICITAR EN – DOS LÍNEAS + PULSO -->
+<div class="publicitar-box">
+  <h2 class="publicitar-title">
+    PUBLICITÁ EN
+    <span class="neon-pulse">Radio Imagen™</span>
+  </h2>
+
+  <p style="color:white;margin-top:10px;">
+    Llegá a miles de oyentes reales. Spots, menciones y difusión profesional para tu negocio.
   </p>
-  <a href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
-     target="_blank"
-     style="display:inline-block;margin-top:10px;background:linear-gradient(135deg,#25D366,#128C7E);padding:10px 30px;border-radius:35px;color:white;font-size:1.05em;text-decoration:none;">
+
+  <a class="publicitar-btn"
+     href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
+     target="_blank">
     💬 Quiero publicitar ahora
   </a>
 </div>
 
-<!-- FOOTER -->
+<!-- ⭐ FOOTER CLICKEABLE ENTERO ⭐ -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
   <p class="footer">
     Creado y diseñado por<br>
-    <span class="neon-cyan" style="font-weight:600;font-size:1.2em;">
+    <span class="neon-cyan" style="font-family:'Poppins'; font-weight:600; font-size:1.2em;">
       CIBORG347™ 
-      <img src="https://iili.io/fHuNsWP.png" width="26">
+      <img src="https://iili.io/fHuNsWP.png">
     </span>
   </p>
 </a>
 
-<!-- SWIPER -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-const swiper = new Swiper('.swiper', {
-  slidesPerView: 1.1,
-  spaceBetween: 20,
-  centeredSlides: true,
-  loop: true,
-  grabCursor: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  breakpoints: {
-    768: { slidesPerView: 1.25 },
-    1024: { slidesPerView: 1.4 }
-  }
-});
-
 function abrirPlayer(){
-  playerBox.style.display="block";
-  playButton.style.display="none";
+  document.getElementById("playerBox").style.display="block";
+  document.getElementById("playButton").style.display="none";
 }
 function cerrarPlayer(){
-  playerBox.style.display="none";
-  playButton.style.display="inline-block";
-  radioIframe.src = radioIframe.src;
+  document.getElementById("playerBox").style.display="none";
+  document.getElementById("playButton").style.display="inline-block";
+  document.getElementById("radioIframe").src=document.getElementById("radioIframe").src;
 }
 
 let oy = Math.floor(Math.random()*200)+420;
@@ -431,28 +428,59 @@ function moverOy(){
   oy += Math.floor(Math.random()*7)-3;
   if(oy<320)oy=320;
   if(oy>860)oy=860;
-  marqueeText.textContent = "Oyentes en este momento: "+oy;
+  document.getElementById("marqueeText").textContent =
+    "Oyentes en este momento: "+oy;
 }
-setInterval(moverOy,1800);
+setInterval(moverOy,1800); moverOy();
 
 function actHora(){
   let n = new Date();
-  hora.textContent = n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
-  fecha.textContent = n.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
+  document.getElementById("hora").textContent =
+    n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+  document.getElementById("fecha").textContent =
+    n.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
 }
 setInterval(actHora,1000); actHora();
 
 async function cargarClima(){
   try{
     let ip = await fetch("https://ipapi.co/json/").then(r=>r.json());
-    let r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${ip.latitude}&longitude=${ip.longitude}&current_weather=true`).then(x=>x.json());
+    let lat = ip.latitude, lon = ip.longitude;
+
+    let r = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+    ).then(x=>x.json());
+
     let t = r.current_weather.temperature;
-    clima.textContent = `${ip.city} – ${t}°C`;
+    let c = r.current_weather.weathercode;
+
+    let icon = "☀️", est = "Despejado";
+    if(c>=45&&c<=48){icon="🌫️";est="Niebla"}
+    if(c>=51&&c<=57){icon="🌦️";est="Llovizna"}
+    if(c>=61&&c<=67){icon="🌧️";est="Lluvia"}
+    if(c>=71&&c<=77){icon="❄️";est="Nieve"}
+    if(c>=80&&c<=82){icon="🌧️";est="Chaparrones"}
+    if(c>=95){icon="⛈️";est="Tormenta"}
+
+    document.getElementById("clima").textContent =
+      `${icon} ${ip.city} – ${t}°C – ${est}`;
   }catch{
-    clima.textContent="Clima no disponible";
+    document.getElementById("clima").textContent="Clima no disponible";
   }
 }
 cargarClima();
+
+// ==== SCRIPT WIDGET VIDEOS ====
+document.querySelectorAll('.videos-widget .thumbnails img').forEach(el=>{
+  el.addEventListener('click',()=>{
+    // Cambiar video principal
+    const videoId = el.getAttribute('data-video-id');
+    document.getElementById('mainVideo').src = 'https://www.youtube.com/embed/' + videoId;
+    // Marcar seleccionado
+    document.querySelectorAll('.videos-widget .thumbnails img').forEach(x=> x.classList.remove('selected'));
+    el.classList.add('selected');
+  });
+});
 </script>
 
 </body>
