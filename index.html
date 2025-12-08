@@ -182,16 +182,16 @@ body{
 /* Publicidad (más chicos) */
 .public-box{
   background:rgba(0,0,0,.55);
-  max-width:500px;      /* REDUCCIÓN */
+  max-width:500px;
   margin:25px auto;
-  padding:18px 15px;    /* REDUCIDO */
+  padding:18px 15px;
   border-radius:18px;
   box-shadow:0 0 14px #00ffff80;
 }
 .public-box img{
   width:100%;
   border-radius:12px;
-  margin-bottom:10px;   /* REDUCIDO */
+  margin-bottom:10px;
 }
 
 /* Footer */
@@ -257,7 +257,6 @@ body{
 
     <div class="swiper-wrapper">
 
-      <!-- VIDEO CON SONIDO (sin autoplay por normas de navegador) -->
       <div class="swiper-slide">
         <div class="video-slide">
           <iframe src="https://www.youtube.com/embed/g9XH1by4Uio?controls=1&playsinline=1"></iframe>
@@ -297,6 +296,53 @@ body{
   </div>
 </section>
 
+
+<!-- ===================== SEGUINOS EN YOUTUBE ===================== -->
+<section style="margin-top:60px; padding:30px 15px; background:rgba(0,0,0,.65); border-radius:20px; box-shadow:0 0 25px #00ffff70 inset;">
+
+  <h2 style="font-family:'Amadeus'; font-size:2.4em; margin-bottom:10px;" class="neon-pulse">
+    SEGUINOS EN YOUTUBE
+  </h2>
+
+  <h3 style="color:#fff; font-size:1.3em; margin-bottom:25px;">
+    “EL CANAL DE LAS ESTRELLAS OK”
+  </h3>
+
+  <div style="
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
+  ">
+
+    <a href="https://youtu.be/g9XH1by4Uio" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
+      <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg" style="width:100%;">
+    </a>
+
+    <a href="https://youtu.be/1RWspCphiyI" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
+      <img src="https://img.youtube.com/vi/1RWspCphiyI/hqdefault.jpg" style="width:100%;">
+    </a>
+
+    <a href="https://youtu.be/gmj1ktdFOs8" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
+      <img src="https://img.youtube.com/vi/gmj1ktdFOs8/hqdefault.jpg" style="width:100%;">
+    </a>
+
+    <a href="https://youtu.be/Ij-lNWYQGiE" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
+      <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg" style="width:100%;">
+    </a>
+
+    <a href="https://youtu.be/kq2g8Y3lkO0" target="_blank" style="width:100%; max-width:330px; border-radius:14px; overflow:hidden; box-shadow:0 0 18px #00ffff90;">
+      <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg" style="width:100%;">
+    </a>
+
+  </div>
+
+</section>
+<!-- ===================== FIN SECCIÓN YOUTUBE ===================== -->
+
+
 <!-- ================= PUBLICIDAD REDUCIDA ================= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
@@ -324,7 +370,6 @@ body{
   </a>
 </div>
 
-<!-- Publicitar -->
 <div class="public-box" style="background:rgba(0,0,0,.7)">
   <h2 style="font-size:1.6em;color:#ff00ff;">PUBLICITÁ EN <span class="neon-pulse">Radio Imagen™</span></h2>
   <p style="color:white;margin-top:8px;font-size:.95em;">
@@ -348,7 +393,6 @@ body{
   </p>
 </a>
 
-
 <!-- SWIPER -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
@@ -357,7 +401,7 @@ const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
   centeredSlides: true,
   loop: true,
-  grabCursor: true,   // Swipe más suave
+  grabCursor: true,
   pagination: {
     el: '.swiper-pagination',
     clickable: true
@@ -403,7 +447,6 @@ async function cargarClima(){
     let ip = await fetch("https://ipapi.co/json/").then(r=>r.json());
     let r = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${ip.latitude}&longitude=${ip.longitude}&current_weather=true`).then(x=>x.json());
     let t = r.current_weather.temperature;
-    let c = r.current_weather.weathercode;
     clima.textContent = `${ip.city} – ${t}°C`;
   }catch{
     clima.textContent="Clima no disponible";
