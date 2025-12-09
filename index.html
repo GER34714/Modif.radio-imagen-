@@ -120,7 +120,6 @@ body{
   font-size:1.1em;font-weight:600;text-decoration:none;display:inline-block;
 }
 
-/* TITULO GENERAL */
 .section-title{
   font-family:'Montserrat';
   font-size:2.1em;
@@ -129,16 +128,12 @@ body{
   margin-top:45px;margin-bottom:20px;
 }
 
-/* ============================================
-    VIDEO CENTRADO + BLOQUEO MINIPLAYER
-============================================ */
-
+/* VIDEO WIDGET */
 .videos-widget{
   max-width:900px;width:100%;
   margin:30px auto;padding:0 15px;
 }
 
-/* VIDEO PRINCIPAL */
 .video-main{
   width:100%;
   max-width:780px;
@@ -157,12 +152,10 @@ body{
   border-radius:15px;
 }
 
-/* THUMBNAILS */
 .thumbnails{
   display:flex;flex-wrap:wrap;
   justify-content:center;gap:14px;
 }
-
 .thumbnails img{
   width:150px;height:85px;
   border-radius:10px;object-fit:cover;
@@ -177,10 +170,7 @@ body{
   .thumbnails img{width:46%;height:auto}
 }
 
-/* ============================================
-      PUBLICIDAD (A — más chica)
-============================================ */
-
+/* PUBLICIDAD */
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;color:#00ffff;
@@ -215,10 +205,28 @@ body{
 }
 .publicitar-btn:hover{background:#00ffff;color:#000;box-shadow:0 0 25px #00ffff}
 
+/* NUEVO BOTÓN PUBLICITA EN RADIO IMAGEN */
+.publicitar-radio{
+  display:inline-block;
+  background:linear-gradient(135deg,#ff00ff,#b300ff);
+  color:white;
+  padding:15px 40px;
+  font-size:1.3em;
+  margin-top:20px;
+  border-radius:40px;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:0 0 20px #ff00ff;
+  transition:.25s;
+}
+.publicitar-radio:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 28px #ff00ff;
+}
+
 /* FOOTER */
 .footer{margin-top:50px;color:#aaa;font-size:1em;line-height:1.5em}
 .footer img{width:26px;margin-left:6px}
-
 </style>
 </head>
 
@@ -261,10 +269,10 @@ body{
   </a>
 </div>
 
-<!-- ========= SEGUINOS EN YOUTUBE + LOGO GRANDE ========= -->
-<h2 class="section-title" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+<!-- ========= SEGUINOS EN YOUTUBE + LOGO MÁS GRANDE ========= -->
+<h2 class="section-title" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
   <img src="https://iili.io/fA4eRNj.jpg"
-       style="width:95px;border-radius:12px;filter:drop-shadow(0 0 15px red);">
+       style="width:130px;border-radius:14px;filter:drop-shadow(0 0 18px red);">
 
   <a href="https://www.youtube.com/@elcanaldelasestrellasok"
      target="_blank"
@@ -278,22 +286,20 @@ body{
         style="
         background:#ff0000;
         color:white;
-        padding:12px 28px;
+        padding:12px 32px;
         border:none;
-        font-size:1.2em;
+        font-size:1.25em;
         border-radius:30px;
         font-weight:700;
         cursor:pointer;
         margin-bottom:18px;
-        box-shadow:0 0 14px #ff0000;
-        transition:.25s;">
+        box-shadow:0 0 18px #ff0000;">
   🔴 SUSCRIBIRSE
 </button>
 
-<!-- ========= WIDGET VIDEOS ========= -->
+<!-- ========= VIDEOS ========= -->
 <div class="videos-widget">
 
-  <!-- VIDEO PRINCIPAL -->
   <div class="video-main">
     <iframe id="mainVideo"
       src="https://www.youtube.com/embed/Ij-lNWYQGiE"
@@ -304,12 +310,10 @@ body{
     </iframe>
   </div>
 
-  <!-- TITULO VIDEOS DESTACADOS -->
   <h2 class="section-title" style="margin-top:10px;font-size:1.8em;">
     🎥 VIDEOS DESTACADOS
   </h2>
 
-  <!-- MINIATURAS -->
   <div class="thumbnails">
     <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg" data-video-id="Ij-lNWYQGiE" class="selected">
     <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg" data-video-id="kq2g8Y3lkO0">
@@ -320,7 +324,7 @@ body{
 
 </div>
 
-<!-- ========= PUBLICIDAD (A) ========= -->
+<!-- ========= PUBLICIDAD ========= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
@@ -336,6 +340,15 @@ body{
   <p style="color:#eaeaea;line-height:1.5em;">Contratá artistas de la radio directo desde MMG™.</p>
   <a class="publicitar-btn" href="https://mmg-contrataciones.onrender.com" target="_blank">👉 Ir al sitio MMG™</a>
 </div>
+
+<!-- ========= NUEVA SECCIÓN: PUBLICITÁ EN RADIO IMAGEN ========= -->
+<h2 class="publicidad-title" style="margin-top:35px;">PUBLICITÁ EN RADIO IMAGEN™</h2>
+
+<a href="https://wa.me/5491157343551?text=Hola,%20quiero%20publicitar%20en%20Radio%20Imagen"
+   target="_blank"
+   class="publicitar-radio">
+   💬 PUBLICITAR AHORA
+</a>
 
 <!-- FOOTER -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
@@ -403,8 +416,6 @@ document.querySelectorAll('.thumbnails img').forEach(el=>{
     const iframe = document.getElementById('mainVideo');
 
     iframe.src = 'https://www.youtube.com/embed/' + id;
-
-    /* BLOQUEA fullscreen → BLOQUEA miniplayer */
     iframe.removeAttribute("allowfullscreen");
 
     document.querySelectorAll('.thumbnails img')
