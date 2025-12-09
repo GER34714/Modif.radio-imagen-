@@ -27,10 +27,7 @@ body{
   padding:20px;
 }
 
-/* ======== FUENTES ======== */
-body, p, h1, h2, h3, h4 {
-  font-family:'Poppins', sans-serif !important;
-}
+/* FUENTES */
 @font-face{
   font-family:'Amadeus';
   src:url('AMADEUS_.TTF');
@@ -39,7 +36,7 @@ body, p, h1, h2, h3, h4 {
   font-family:'Amadeus' !important;
 }
 
-/* ======== EFECTOS NEÓN ======== */
+/* EFECTOS NEÓN */
 .neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
@@ -47,7 +44,10 @@ body, p, h1, h2, h3, h4 {
   background-size:350%;
   animation:neonMove 6s linear infinite;
 }
-@keyframes neonMove{0%{background-position:0%}100%{background-position:100%}}
+@keyframes neonMove{
+  0%{background-position:0%}
+  100%{background-position:100%}
+}
 
 .neon-cyan{
   background:linear-gradient(90deg,#00ffff,#00cccc,#00ffff);
@@ -56,9 +56,12 @@ body, p, h1, h2, h3, h4 {
   background-size:200%;
   animation:cyanPulse 4s linear infinite;
 }
-@keyframes cyanPulse{0%{background-position:0%}100%{background-position:200%}}
+@keyframes cyanPulse{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
 
-/* ======== INFO SUPERIOR ======== */
+/* INFO SUPERIOR */
 .top-info{
   max-width:600px;
   margin:10px auto 25px;
@@ -68,7 +71,7 @@ body, p, h1, h2, h3, h4 {
   box-shadow:0 0 15px #00ffff;
 }
 
-/* ======== CAJA PRINCIPAL RADIO ======== */
+/* CAJA PRINCIPAL RADIO */
 .radio-box{
   background:rgba(0,0,0,.78);
   padding:40px 30px;
@@ -107,7 +110,7 @@ body, p, h1, h2, h3, h4 {
  100%{transform:scale(.9);opacity:.6}
 }
 
-/* ======== MARQUEE ======== */
+/* MARQUEE */
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
   white-space:nowrap;
@@ -118,9 +121,12 @@ body, p, h1, h2, h3, h4 {
   text-shadow:0 0 10px #00ffff;
   animation:scroll 14s linear infinite;
 }
-@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
+@keyframes scroll{
+ from{transform:translateX(100%)}
+ to{transform:translateX(-100%)}
+}
 
-/* ======== PLAYER RADIO ======== */
+/* PLAYER RADIO */
 .play-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#ff0080);
@@ -141,7 +147,6 @@ body, p, h1, h2, h3, h4 {
   border:none;
 }
 
-/* ======== COMPARTIR ======== */
 .share-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#005eff);
@@ -153,9 +158,10 @@ body, p, h1, h2, h3, h4 {
   font-weight:600;
   text-decoration:none;
   display:inline-block;
-}/* =====================================================
-      WIDGET YOUTUBE - CANAL DE LAS ESTRELLAS OK
-   ===================================================== */
+}
+/* ============================================
+      WIDGET YOUTUBE — CANAL DE LAS ESTRELLAS OK
+   ============================================ */
 
 .yt-title {
   font-family:'Montserrat', sans-serif;
@@ -197,6 +203,7 @@ body, p, h1, h2, h3, h4 {
   box-shadow:0 0 12px #ff0033;
   transition:transform .25s, box-shadow .25s;
 }
+
 .yt-sub-btn:hover {
   transform:scale(1.06);
   box-shadow:0 0 18px #ff2255;
@@ -210,7 +217,7 @@ body, p, h1, h2, h3, h4 {
   text-align:center;
 }
 
-/* Video centrado REAL */
+/* VIDEO CENTRADO REAL */
 .videos-widget .video-main {
   position: relative;
   width: 100% !important;
@@ -220,6 +227,7 @@ body, p, h1, h2, h3, h4 {
   padding-bottom: 56.25%;
   height: 0;
 }
+
 .videos-widget .video-main iframe {
   position:absolute;
   width:100%;
@@ -229,32 +237,35 @@ body, p, h1, h2, h3, h4 {
   box-shadow:0 0 22px #00ffff;
 }
 
-/* Miniaturas */
+/* MINIATURAS */
 .videos-widget .thumbnails {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:12px;
 }
+
 .videos-widget .thumbnails img {
   width:150px;
   height:85px;
   object-fit:cover;
   cursor:pointer;
-  border:3px solid transparent;
   border-radius:8px;
+  border:3px solid transparent;
   transition:transform .25s, border .25s;
 }
+
 .videos-widget .thumbnails img:hover {
   transform:scale(1.05);
   border:3px solid #00ffff;
 }
+
 .videos-widget .thumbnails img.selected {
   border:3px solid #ff0044;
   box-shadow:0 0 16px #ff0044;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 @media(max-width:600px){
   .yt-title{
     font-size:1.3em;
@@ -268,9 +279,9 @@ body, p, h1, h2, h3, h4 {
   }
 }
 
-/* =====================================================
-        PUBLICIDAD + PUBLICITAR
-   ===================================================== */
+/* ============================================
+         PUBLICIDAD + PUBLICITAR
+   ============================================ */
 
 .publicidad-title{
   font-family:'Montserrat';
@@ -326,11 +337,13 @@ body, p, h1, h2, h3, h4 {
   padding:20px 0;
   text-align:center;
 }
+
 .footer img{
   width:26px;
   vertical-align:middle;
   margin-left:6px;
 }
+
 .footer-link{
   display:block;
   text-decoration:none;
@@ -342,14 +355,14 @@ body, p, h1, h2, h3, h4 {
 
 <body>
 
-<!-- ===== INFO SUPERIOR ===== -->
+<!-- ========= INFO SUPERIOR ========= -->
 <div class="top-info">
   <div class="clima-line" id="clima">Cargando clima...</div>
   <div class="hora-line" id="hora"></div>
   <div class="hora-line" id="fecha"></div>
 </div>
 
-<!-- ===== CAJA RADIO ===== -->
+<!-- ========= RADIO PRINCIPAL ========= -->
 <div class="radio-box">
 
   <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
@@ -370,18 +383,17 @@ body, p, h1, h2, h3, h4 {
     <div class="player-container">
       <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
     </div>
+
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
   <a class="share-btn"
-     href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
+     href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
 </div>
 
-<!-- =====================================
-       ⭐ WIDGET YOUTUBE CORREGIDO ⭐
-   ===================================== -->
+<!-- ========= WIDGET YOUTUBE CORREGIDO ========= -->
 <div class="videos-widget">
 
   <a href="https://youtube.com/@elcanaldelasestrellasok"
@@ -403,6 +415,7 @@ body, p, h1, h2, h3, h4 {
   </div>
 
   <div class="thumbnails">
+
     <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg"
          data-video-id="Ij-lNWYQGiE"
          class="selected">
@@ -418,18 +431,22 @@ body, p, h1, h2, h3, h4 {
 
     <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg"
          data-video-id="g9XH1by4Uio">
+
   </div>
 
 </div>
 
-<!-- ===== PUBLICIDADES ===== -->
+<!-- ========= PUBLICIDADES ========= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
-  <img src="https://iili.io/fHuARLP.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
+  <img src="https://iili.io/fHuARLP.md.jpg"
+       style="width:100%;border-radius:15px;margin-bottom:15px;">
+
   <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">
     TÍO SERGIO™ – El lugar de los mayores
   </h3>
+
   <p style="color:#eaeaea;line-height:1.6em;">
     Toda la música que escuchás en <b style="font-family:'Amadeus'">Radio Imagen™</b>
     la vivís en <b>TÍO SERGIO™</b>.
@@ -441,7 +458,9 @@ body, p, h1, h2, h3, h4 {
             padding:12px 30px;border-radius:40px;text-decoration:none;color:#fff;">
      👉 Ir al sitio TÍO SERGIO™
   </a>
-</div><div class="public-box">
+</div>
+<!-- ===== PUBLICIDAD MMG ===== -->
+<div class="public-box">
   <img src="https://iili.io/fHuRH6F.md.jpg"
        style="width:100%;border-radius:15px;margin-bottom:15px;">
 
@@ -462,9 +481,7 @@ body, p, h1, h2, h3, h4 {
   </a>
 </div>
 
-<!-- ============================
-       PUBLICITAR EN RADIO IMAGEN
-     ============================ -->
+<!-- ===== PUBLICITAR EN RADIO IMAGEN ===== -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
     PUBLICITÁ EN
@@ -482,9 +499,7 @@ body, p, h1, h2, h3, h4 {
   </a>
 </div>
 
-<!-- ============================
-              FOOTER
-     ============================ -->
+<!-- ===== FOOTER ===== -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
   <p class="footer">
     Creado y diseñado por<br>
@@ -496,9 +511,9 @@ body, p, h1, h2, h3, h4 {
   </p>
 </a>
 
-<!-- ============================
-           SCRIPTS COMPLETOS
-     ============================ -->
+<!-- ===============================
+          SCRIPTS COMPLETOS
+     =============================== -->
 <script>
 /* ===== PLAYER ===== */
 function abrirPlayer(){
@@ -510,7 +525,7 @@ function cerrarPlayer(){
   document.getElementById("playerBox").style.display="none";
   document.getElementById("playButton").style.display="inline-block";
 
-  /* Fuerza reload del player */
+  // Fuerza reload del player
   document.getElementById("radioIframe").src =
     document.getElementById("radioIframe").src;
 }
@@ -519,13 +534,13 @@ function cerrarPlayer(){
 let oy = Math.floor(Math.random()*200)+420;
 function moverOy(){
   oy += Math.floor(Math.random()*7)-3;
-  if(oy<320)oy=320;
-  if(oy>860)oy=860;
+  if(oy < 320) oy = 320;
+  if(oy > 860) oy = 860;
 
   document.getElementById("marqueeText").textContent =
     "Oyentes en este momento: " + oy;
 }
-setInterval(moverOy,1800);
+setInterval(moverOy, 1800);
 moverOy();
 
 /* ===== HORA Y FECHA ===== */
@@ -538,7 +553,7 @@ function actHora(){
   document.getElementById("fecha").textContent =
     n.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
 }
-setInterval(actHora,1000);
+setInterval(actHora, 1000);
 actHora();
 
 /* ===== CLIMA ===== */
@@ -565,15 +580,16 @@ async function cargarClima(){
 
     document.getElementById("clima").textContent =
       `${icon} ${ip.city} – ${t}°C – ${est}`;
+
   }catch{
-    document.getElementById("clima").textContent="Clima no disponible";
+    document.getElementById("clima").textContent = "Clima no disponible";
   }
 }
 cargarClima();
 
 /* ===== WIDGET YOUTUBE ===== */
 document.querySelectorAll('.videos-widget .thumbnails img').forEach(el=>{
-  el.addEventListener('click',()=>{
+  el.addEventListener('click', ()=>{
 
     const videoId = el.getAttribute('data-video-id');
 
@@ -581,7 +597,7 @@ document.querySelectorAll('.videos-widget .thumbnails img').forEach(el=>{
       'https://www.youtube.com/embed/' + videoId;
 
     document.querySelectorAll('.videos-widget .thumbnails img')
-      .forEach(x=> x.classList.remove('selected'));
+      .forEach(x => x.classList.remove('selected'));
 
     el.classList.add('selected');
   });
