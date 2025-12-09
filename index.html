@@ -27,22 +27,19 @@ body{
   padding:20px;
 }
 
-/* Restaurar fuentes principales */
+/* ======== FUENTES ======== */
 body, p, h1, h2, h3, h4 {
   font-family:'Poppins', sans-serif !important;
 }
-
-/* Fuente Amadeus */
 @font-face{
   font-family:'Amadeus';
   src:url('AMADEUS_.TTF');
 }
-
 .radio-title {
   font-family:'Amadeus' !important;
 }
 
-/* Neón */
+/* ======== EFECTOS NEÓN ======== */
 .neon-pulse{
   background:linear-gradient(90deg,#00ffff,#ff00ff,#ffff00,#00ffff);
   -webkit-background-clip:text;
@@ -50,10 +47,7 @@ body, p, h1, h2, h3, h4 {
   background-size:350%;
   animation:neonMove 6s linear infinite;
 }
-@keyframes neonMove{
-  0%{background-position:0%}
-  100%{background-position:100%}
-}
+@keyframes neonMove{0%{background-position:0%}100%{background-position:100%}}
 
 .neon-cyan{
   background:linear-gradient(90deg,#00ffff,#00cccc,#00ffff);
@@ -62,38 +56,9 @@ body, p, h1, h2, h3, h4 {
   background-size:200%;
   animation:cyanPulse 4s linear infinite;
 }
-@keyframes cyanPulse{
-  0%{background-position:0%}
-  100%{background-position:200%}
-}
+@keyframes cyanPulse{0%{background-position:0%}100%{background-position:200%}}
 
-/* EN VIVO */
-.en-vivo{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(255,0,0,.2);
-  border:1px solid #ff0033;
-  padding:6px 14px;
-  border-radius:25px;
-  color:#ff0033;
-  font-family:'Montserrat',sans-serif;
-  font-weight:600;
-  margin-top:10px;
-  margin-bottom:5px;
-}
-.en-vivo .dot{
-  width:10px;height:10px;border-radius:50%;
-  background:#ff0033;
-  animation:pulse 1.2s infinite;
-}
-@keyframes pulse{
- 0%{transform:scale(.9);opacity:.6}
- 50%{transform:scale(1.3);opacity:1}
- 100%{transform:scale(.9);opacity:.6}
-}
-
-/* Caja Info */
+/* ======== INFO SUPERIOR ======== */
 .top-info{
   max-width:600px;
   margin:10px auto 25px;
@@ -103,7 +68,7 @@ body, p, h1, h2, h3, h4 {
   box-shadow:0 0 15px #00ffff;
 }
 
-/* Caja de la radio */
+/* ======== CAJA PRINCIPAL RADIO ======== */
 .radio-box{
   background:rgba(0,0,0,.78);
   padding:40px 30px;
@@ -119,7 +84,30 @@ body, p, h1, h2, h3, h4 {
   display:block;
 }
 
-/* Marquee */
+.en-vivo{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,0,0,.2);
+  border:1px solid #ff0033;
+  padding:6px 14px;
+  border-radius:25px;
+  color:#ff0033;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+.en-vivo .dot{
+  width:10px;height:10px;border-radius:50%;
+  background:#ff0033;
+  animation:pulse 1.2s infinite;
+}
+@keyframes pulse{
+ 0%{transform:scale(.9);opacity:.6}
+ 50%{transform:scale(1.3);opacity:1}
+ 100%{transform:scale(.9);opacity:.6}
+}
+
+/* ======== MARQUEE ======== */
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
   white-space:nowrap;
@@ -130,12 +118,9 @@ body, p, h1, h2, h3, h4 {
   text-shadow:0 0 10px #00ffff;
   animation:scroll 14s linear infinite;
 }
-@keyframes scroll{
- from{transform:translateX(100%)}
- to{transform:translateX(-100%)}
-}
+@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 
-/* Play */
+/* ======== PLAYER RADIO ======== */
 .play-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#ff0080);
@@ -156,7 +141,7 @@ body, p, h1, h2, h3, h4 {
   border:none;
 }
 
-/* Compartir */
+/* ======== COMPARTIR ======== */
 .share-btn{
   margin-top:20px;
   background:linear-gradient(135deg,#00ffff,#005eff);
@@ -168,16 +153,16 @@ body, p, h1, h2, h3, h4 {
   font-weight:600;
   text-decoration:none;
   display:inline-block;
-}
-
-/* ---- ESTILOS DEL NUEVO WIDGET YT ---- */
+}/* =====================================================
+      WIDGET YOUTUBE - CANAL DE LAS ESTRELLAS OK
+   ===================================================== */
 
 .yt-title {
   font-family:'Montserrat', sans-serif;
   font-size:1.7em;
   font-weight:800;
   color:#ffffff;
-  text-shadow:0 0 12px #ff0000;
+  text-shadow:0 0 12px #ff0000, 0 0 18px #ff0044;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -189,11 +174,12 @@ body, p, h1, h2, h3, h4 {
 
 @keyframes ytGlow {
   0% { text-shadow:0 0 10px #ff0044; }
-  100% { text-shadow:0 0 20px #ff3366; }
+  100% { text-shadow:0 0 22px #ff2255; }
 }
 
 .yt-logo {
   width:40px;
+  height:auto;
   filter: drop-shadow(0 0 10px #ff0000);
 }
 
@@ -209,26 +195,32 @@ body, p, h1, h2, h3, h4 {
   margin-bottom:20px;
   font-weight:700;
   box-shadow:0 0 12px #ff0033;
+  transition:transform .25s, box-shadow .25s;
+}
+.yt-sub-btn:hover {
+  transform:scale(1.06);
+  box-shadow:0 0 18px #ff2255;
 }
 
 .videos-widget {
   max-width:850px;
   width:100%;
-  text-align:center;
   margin:40px auto;
   padding:0 12px;
+  text-align:center;
 }
 
-/* VIDEO CENTRADO */
-.videos-widget .video-main{
-  position:relative;
-  width:100%;
-  max-width:750px;
-  margin:0 auto 20px auto;
-  padding-bottom:56.25%;
-  height:0;
+/* Video centrado REAL */
+.videos-widget .video-main {
+  position: relative;
+  width: 100% !important;
+  max-width: 750px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-bottom: 56.25%;
+  height: 0;
 }
-.videos-widget .video-main iframe{
+.videos-widget .video-main iframe {
   position:absolute;
   width:100%;
   height:100%;
@@ -238,29 +230,31 @@ body, p, h1, h2, h3, h4 {
 }
 
 /* Miniaturas */
-.videos-widget .thumbnails{
+.videos-widget .thumbnails {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  align-items:center;
   gap:12px;
 }
-.videos-widget .thumbnails img{
+.videos-widget .thumbnails img {
   width:150px;
   height:85px;
   object-fit:cover;
-  border-radius:8px;
   cursor:pointer;
+  border:3px solid transparent;
+  border-radius:8px;
   transition:transform .25s, border .25s;
 }
-.videos-widget .thumbnails img:hover{
+.videos-widget .thumbnails img:hover {
   transform:scale(1.05);
   border:3px solid #00ffff;
 }
-.videos-widget .thumbnails img.selected{
+.videos-widget .thumbnails img.selected {
   border:3px solid #ff0044;
   box-shadow:0 0 16px #ff0044;
-}/* RESPONSIVE */
+}
+
+/* Responsive */
 @media(max-width:600px){
   .yt-title{
     font-size:1.3em;
@@ -274,7 +268,10 @@ body, p, h1, h2, h3, h4 {
   }
 }
 
-/* PUBLICIDAD */
+/* =====================================================
+        PUBLICIDAD + PUBLICITAR
+   ===================================================== */
+
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;
@@ -293,7 +290,7 @@ body, p, h1, h2, h3, h4 {
   box-shadow:0 0 18px #00ffff;
 }
 
-/* PUBLICITAR EN */
+/* PUBLICITAR */
 .publicitar-box{
   margin-top:50px;
   padding:30px 20px;
@@ -329,31 +326,30 @@ body, p, h1, h2, h3, h4 {
   padding:20px 0;
   text-align:center;
 }
-
 .footer img{
   width:26px;
   vertical-align:middle;
   margin-left:6px;
 }
-
 .footer-link{
   display:block;
   text-decoration:none;
   color:inherit;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 TOPE INFO (CLIMA, HORA) -->
+<!-- ===== INFO SUPERIOR ===== -->
 <div class="top-info">
   <div class="clima-line" id="clima">Cargando clima...</div>
   <div class="hora-line" id="hora"></div>
   <div class="hora-line" id="fecha"></div>
 </div>
 
-<!-- 🔥 CAJA PRINCIPAL RADIO -->
+<!-- ===== CAJA RADIO ===== -->
 <div class="radio-box">
 
   <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
@@ -374,78 +370,101 @@ body, p, h1, h2, h3, h4 {
     <div class="player-container">
       <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
     </div>
-
     <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
   </div>
 
-  <a class="share-btn" href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
+  <a class="share-btn"
+     href="whatsapp://send?text=📻%20Escuchá%20RADIO%20IMAGEN%20en%20vivo%2024hs:%20https://radioimagen.onrender.com">
     🔗 Compartir Radio Imagen
   </a>
-
 </div>
 
-<!-- ⭐⭐⭐ NUEVO WIDGET DEL CANAL DE LAS ESTRELLAS OK ⭐⭐⭐ -->
-<div class="videos-widget" id="videosWidget">
+<!-- =====================================
+       ⭐ WIDGET YOUTUBE CORREGIDO ⭐
+   ===================================== -->
+<div class="videos-widget">
 
-  <a href="https://youtube.com/@elcanaldelasestrellasok" target="_blank" class="yt-title">
-    <img src="https://iili.io/J9xQtQ7.png" class="yt-logo">
-    SEGUINOS EN YOUTUBE – CANAL OFICIAL
+  <a href="https://youtube.com/@elcanaldelasestrellasok"
+     target="_blank"
+     class="yt-title">
+     <img src="https://iili.io/J9xQtQ7.png" class="yt-logo">
+     SEGUINOS EN YOUTUBE – CANAL OFICIAL
   </a>
 
   <button class="yt-sub-btn"
-    onclick="window.open('https://youtube.com/@elcanaldelasestrellasok?sub_confirmation=1','_blank')">
-    🔴 SUSCRIBIRSE
+     onclick="window.open('https://youtube.com/@elcanaldelasestrellasok?sub_confirmation=1','_blank')">
+     🔴 SUSCRIBIRSE
   </button>
 
   <div class="video-main">
-    <iframe id="mainVideo" src="https://www.youtube.com/embed/Ij-lNWYQGiE" allowfullscreen></iframe>
+    <iframe id="mainVideo"
+            src="https://www.youtube.com/embed/Ij-lNWYQGiE"
+            allowfullscreen></iframe>
   </div>
 
   <div class="thumbnails">
-    <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg" data-video-id="Ij-lNWYQGiE" class="selected">
-    <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg" data-video-id="kq2g8Y3lkO0">
-    <img src="https://img.youtube.com/vi/gmj1ktdFOs8/hqdefault.jpg" data-video-id="gmj1ktdFOs8">
-    <img src="https://img.youtube.com/vi/1RWspCphiyI/hqdefault.jpg" data-video-id="1RWspCphiyI">
-    <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg" data-video-id="g9XH1by4Uio">
+    <img src="https://img.youtube.com/vi/Ij-lNWYQGiE/hqdefault.jpg"
+         data-video-id="Ij-lNWYQGiE"
+         class="selected">
+
+    <img src="https://img.youtube.com/vi/kq2g8Y3lkO0/hqdefault.jpg"
+         data-video-id="kq2g8Y3lkO0">
+
+    <img src="https://img.youtube.com/vi/gmj1ktdFOs8/hqdefault.jpg"
+         data-video-id="gmj1ktdFOs8">
+
+    <img src="https://img.youtube.com/vi/1RWspCphiyI/hqdefault.jpg"
+         data-video-id="1RWspCphiyI">
+
+    <img src="https://img.youtube.com/vi/g9XH1by4Uio/hqdefault.jpg"
+         data-video-id="g9XH1by4Uio">
   </div>
 
 </div>
 
-<!-- ⭐ ESPACIO PUBLICITARIO ⭐ -->
+<!-- ===== PUBLICIDADES ===== -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
-  <img src="https://iili.io/fHuARLP.md.jpg"
-       style="width:100%;border-radius:15px;margin-bottom:15px;">
+  <img src="https://iili.io/fHuARLP.md.jpg" style="width:100%;border-radius:15px;margin-bottom:15px;">
   <h3 style="color:#ff00ff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">
     TÍO SERGIO™ – El lugar de los mayores
   </h3>
   <p style="color:#eaeaea;line-height:1.6em;">
-    Toda la música que escuchás en <b style="font-family:'Amadeus'">Radio Imagen™</b> la vivís en <b>TÍO SERGIO™</b>.
+    Toda la música que escuchás en <b style="font-family:'Amadeus'">Radio Imagen™</b>
+    la vivís en <b>TÍO SERGIO™</b>.
   </p>
-  <a href="https://tio-sergio.onrender.com" target="_blank"
+
+  <a href="https://tio-sergio.onrender.com"
+     target="_blank"
      style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#ff00ff,#b300ff);
             padding:12px 30px;border-radius:40px;text-decoration:none;color:#fff;">
      👉 Ir al sitio TÍO SERGIO™
   </a>
-</div>
-
-<div class="public-box">
+</div><div class="public-box">
   <img src="https://iili.io/fHuRH6F.md.jpg"
        style="width:100%;border-radius:15px;margin-bottom:15px;">
+
   <h3 style="color:#00ffff;font-family:'Montserrat';font-size:1.6em;margin-bottom:8px;">
     MMG – Manager Music Group™
   </h3>
+
   <p style="color:#eaeaea;line-height:1.6em;">
     ¿Querés tener a los artistas de <b style="font-family:'Amadeus'">Radio Imagen™</b> en tu evento?<br>
     Contratalos directo desde <b>MMG™</b>.
   </p>
-  <a href="https://mmg-contrataciones.onrender.com" target="_blank"
+
+  <a href="https://mmg-contrataciones.onrender.com"
+     target="_blank"
      style="display:inline-block;margin-top:15px;background:linear-gradient(135deg,#00ffff,#0099cc);
             padding:12px 30px;border-radius:40px;text-decoration:none;color:#000;font-weight:600;">
      👉 Ir al sitio MMG™
   </a>
-</div><!-- ⭐ PUBLICITAR EN RADIO IMAGEN ⭐ -->
+</div>
+
+<!-- ============================
+       PUBLICITAR EN RADIO IMAGEN
+     ============================ -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
     PUBLICITÁ EN
@@ -463,56 +482,66 @@ body, p, h1, h2, h3, h4 {
   </a>
 </div>
 
-<!-- ⭐ FOOTER ORIGINAL RESTAURADO ⭐ -->
+<!-- ============================
+              FOOTER
+     ============================ -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
   <p class="footer">
     Creado y diseñado por<br>
-    <span class="neon-cyan" style="font-family:'Poppins'; font-weight:600; font-size:1.2em;">
+    <span class="neon-cyan"
+          style="font-family:'Poppins'; font-weight:600; font-size:1.2em;">
       CIBORG347™ 
       <img src="https://iili.io/fHuNsWP.png">
     </span>
   </p>
 </a>
 
-<!-- ⭐⭐⭐ SCRIPTS COMPLETOS ⭐⭐⭐ -->
+<!-- ============================
+           SCRIPTS COMPLETOS
+     ============================ -->
 <script>
-/* Abrir Player */
+/* ===== PLAYER ===== */
 function abrirPlayer(){
   document.getElementById("playerBox").style.display="block";
   document.getElementById("playButton").style.display="none";
 }
 
-/* Cerrar Player */
 function cerrarPlayer(){
   document.getElementById("playerBox").style.display="none";
   document.getElementById("playButton").style.display="inline-block";
-  document.getElementById("radioIframe").src=document.getElementById("radioIframe").src;
+
+  /* Fuerza reload del player */
+  document.getElementById("radioIframe").src =
+    document.getElementById("radioIframe").src;
 }
 
-/* Oyentes Aleatorios */
+/* ===== OYENTES ===== */
 let oy = Math.floor(Math.random()*200)+420;
 function moverOy(){
   oy += Math.floor(Math.random()*7)-3;
   if(oy<320)oy=320;
   if(oy>860)oy=860;
+
   document.getElementById("marqueeText").textContent =
-    "Oyentes en este momento: "+oy;
+    "Oyentes en este momento: " + oy;
 }
 setInterval(moverOy,1800);
 moverOy();
 
-/* Hora y Fecha */
+/* ===== HORA Y FECHA ===== */
 function actHora(){
   let n = new Date();
+
   document.getElementById("hora").textContent =
     n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
+
   document.getElementById("fecha").textContent =
     n.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
 }
 setInterval(actHora,1000);
 actHora();
 
-/* Clima Automático */
+/* ===== CLIMA ===== */
 async function cargarClima(){
   try{
     let ip = await fetch("https://ipapi.co/json/").then(r=>r.json());
@@ -526,6 +555,7 @@ async function cargarClima(){
     let c = r.current_weather.weathercode;
 
     let icon = "☀️", est = "Despejado";
+
     if(c>=45&&c<=48){icon="🌫️";est="Niebla"}
     if(c>=51&&c<=57){icon="🌦️";est="Llovizna"}
     if(c>=61&&c<=67){icon="🌧️";est="Lluvia"}
@@ -541,10 +571,12 @@ async function cargarClima(){
 }
 cargarClima();
 
-/* ⭐ SCRIPT WIDGET YOUTUBE ⭐ */
+/* ===== WIDGET YOUTUBE ===== */
 document.querySelectorAll('.videos-widget .thumbnails img').forEach(el=>{
   el.addEventListener('click',()=>{
+
     const videoId = el.getAttribute('data-video-id');
+
     document.getElementById('mainVideo').src =
       'https://www.youtube.com/embed/' + videoId;
 
