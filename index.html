@@ -154,7 +154,7 @@ body{
 }
 @keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 
-/* NUEVO BOTÓN STREAM DIRECTO */
+/* BOTÓN PLAY / PAUSE NUEVO */
 .stream-btn{
   display:inline-block;
   margin-top:20px;
@@ -269,7 +269,8 @@ body{
   display:inline-block;margin-top:20px;
   background:rgba(0,0,0,.6);
   padding:14px 35px;border-radius:35px;
-  font-size:1.2em;font-weight:700;
+  font-size:1.2em;
+  font-weight:700;
   color:#00ffff;border:2px solid #00ffff;
   text-decoration:none;box-shadow:0 0 15px #00ffff;
   transition:.25s;
@@ -345,15 +346,15 @@ body{
 
   <p class="radio-sub">En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <!-- 🔥 BOTÓN NUEVO (STREAM DIRECTO) -->
-  <button class="stream-btn" onclick="document.getElementById('streamPlayer').play()">
+  <!-- 🔥 BOTÓN PLAY / PAUSE -->
+  <button class="stream-btn" id="streamBtn" onclick="toggleRadio()">
     ▶️ Escuchar Radio Imagen
   </button>
 
   <!-- AUDIO STREAM -->
   <audio id="streamPlayer" src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA" preload="none"></audio>
 
-  
+
   <a class="share-btn"
      href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
      🔗 Compartir Radio Imagen
@@ -440,23 +441,24 @@ body{
   </p>
 </a>
 
-
 <!-- ===============================
             SCRIPTS ORIGINALES
 ================================ -->
 
 <script>
 
-/* PLAYER — YA NO SE USA EL BOTÓN VIEJO PERO LO MANTENGO POR SI LO REACTIVÁS */
-function abrirPlayer(){
-  document.getElementById("playerBox").style.display="block";
-  document.getElementById("playButton")?.style.display="none";
-}
-function cerrarPlayer(){
-  document.getElementById("playerBox").style.display="none";
-  document.getElementById("playButton")?.style.display="inline-block";
-  document.getElementById("radioIframe").src =
-    document.getElementById("radioIframe").src;
+/* PLAY / PAUSE STREAM */
+function toggleRadio() {
+  const audio = document.getElementById("streamPlayer");
+  const btn = document.getElementById("streamBtn");
+
+  if (audio.paused) {
+    audio.play();
+    btn.textContent = "⏸️ Pausar Radio Imagen";
+  } else {
+    audio.pause();
+    btn.textContent = "▶️ Escuchar Radio Imagen";
+  }
 }
 
 /* OYENTES */
