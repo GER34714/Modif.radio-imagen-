@@ -57,7 +57,7 @@ body{
   animation:cyanPulse 4s linear infinite;
 }
 @keyframes cyanPulse{
-  0%{background-position:0%}
+  0%{background-position:0}
   100%{background-position:200%}
 }
 
@@ -159,9 +159,10 @@ body{
   text-decoration:none;
   display:inline-block;
 }
+
 /* ============================================
-      WIDGET YOUTUBE — CANAL DE LAS ESTRELLAS OK
-   ============================================ */
+   WIDGET YOUTUBE — CENTRADO *
+============================================ */
 
 .yt-title {
   font-family:'Montserrat', sans-serif;
@@ -177,7 +178,6 @@ body{
   text-decoration:none;
   animation:ytGlow 2.2s infinite alternate;
 }
-
 @keyframes ytGlow {
   0% { text-shadow:0 0 10px #ff0044; }
   100% { text-shadow:0 0 22px #ff2255; }
@@ -203,7 +203,6 @@ body{
   box-shadow:0 0 12px #ff0033;
   transition:transform .25s, box-shadow .25s;
 }
-
 .yt-sub-btn:hover {
   transform:scale(1.06);
   box-shadow:0 0 18px #ff2255;
@@ -217,17 +216,16 @@ body{
   text-align:center;
 }
 
-/* VIDEO CENTRADO REAL */
+/* VIDEO PRINCIPAL CENTRADO */
 .videos-widget .video-main {
   position: relative;
-  width: 100% !important;
+  width: 100%!important;
   max-width: 750px;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto!important;
+  margin-right: auto!important;
   padding-bottom: 56.25%;
   height: 0;
 }
-
 .videos-widget .video-main iframe {
   position:absolute;
   width:100%;
@@ -244,7 +242,6 @@ body{
   justify-content:center;
   gap:12px;
 }
-
 .videos-widget .thumbnails img {
   width:150px;
   height:85px;
@@ -254,12 +251,10 @@ body{
   border:3px solid transparent;
   transition:transform .25s, border .25s;
 }
-
 .videos-widget .thumbnails img:hover {
   transform:scale(1.05);
   border:3px solid #00ffff;
 }
-
 .videos-widget .thumbnails img.selected {
   border:3px solid #ff0044;
   box-shadow:0 0 16px #ff0044;
@@ -279,10 +274,7 @@ body{
   }
 }
 
-/* ============================================
-         PUBLICIDAD + PUBLICITAR
-   ============================================ */
-
+/* PUBLICIDAD, PUBLICITAR & FOOTER — SIN CAMBIOS */
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;
@@ -301,7 +293,6 @@ body{
   box-shadow:0 0 18px #00ffff;
 }
 
-/* PUBLICITAR */
 .publicitar-box{
   margin-top:50px;
   padding:30px 20px;
@@ -328,7 +319,6 @@ body{
   margin-top:5px;
 }
 
-/* FOOTER */
 .footer{
   margin-top:50px;
   color:#aaa;
@@ -389,7 +379,7 @@ body{
 
   <a class="share-btn"
      href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
-    🔗 Compartir Radio Imagen
+     🔗 Compartir Radio Imagen
   </a>
 </div>
 
@@ -459,6 +449,7 @@ body{
      👉 Ir al sitio TÍO SERGIO™
   </a>
 </div>
+
 <!-- ===== PUBLICIDAD MMG ===== -->
 <div class="public-box">
   <img src="https://iili.io/fHuRH6F.md.jpg"
@@ -495,7 +486,7 @@ body{
   <a class="publicitar-btn"
      href="https://wa.me/5491157343551?text=Hola!%20Quiero%20publicitar%20en%20Radio%20Imagen!"
      target="_blank">
-    💬 Quiero publicitar ahora
+     💬 Quiero publicitar ahora
   </a>
 </div>
 
@@ -512,20 +503,17 @@ body{
 </a>
 
 <!-- ===============================
-          SCRIPTS COMPLETOS
-     =============================== -->
+        SCRIPTS COMPLETOS
+=============================== -->
 <script>
 /* ===== PLAYER ===== */
 function abrirPlayer(){
   document.getElementById("playerBox").style.display="block";
   document.getElementById("playButton").style.display="none";
 }
-
 function cerrarPlayer(){
   document.getElementById("playerBox").style.display="none";
   document.getElementById("playButton").style.display="inline-block";
-
-  // Fuerza reload del player
   document.getElementById("radioIframe").src =
     document.getElementById("radioIframe").src;
 }
@@ -546,10 +534,8 @@ moverOy();
 /* ===== HORA Y FECHA ===== */
 function actHora(){
   let n = new Date();
-
   document.getElementById("hora").textContent =
     n.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});
-
   document.getElementById("fecha").textContent =
     n.toLocaleDateString("es-AR",{weekday:"long",day:"numeric",month:"long"});
 }
