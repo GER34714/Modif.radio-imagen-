@@ -161,7 +161,7 @@ body{
 }
 
 /* ============================================
-   WIDGET YOUTUBE — CENTRADO *
+   WIDGET YOUTUBE — CENTRADO (CORREGIDO)
 ============================================ */
 
 .yt-title {
@@ -216,16 +216,20 @@ body{
   text-align:center;
 }
 
-/* VIDEO PRINCIPAL CENTRADO */
+/* VIDEO PRINCIPAL — CENTRADO REAL */
 .videos-widget .video-main {
   position: relative;
-  width: 100%!important;
+  width: 100% !important;
   max-width: 750px;
-  margin-left: auto!important;
-  margin-right: auto!important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding-bottom: 56.25%;
   height: 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
+
 .videos-widget .video-main iframe {
   position:absolute;
   width:100%;
@@ -233,6 +237,8 @@ body{
   border:none;
   border-radius:15px;
   box-shadow:0 0 22px #00ffff;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 /* MINIATURAS */
@@ -260,7 +266,6 @@ body{
   box-shadow:0 0 16px #ff0044;
 }
 
-/* RESPONSIVE */
 @media(max-width:600px){
   .yt-title{
     font-size:1.3em;
@@ -274,7 +279,7 @@ body{
   }
 }
 
-/* PUBLICIDAD, PUBLICITAR & FOOTER — SIN CAMBIOS */
+/* PUBLICIDAD & FOOTER */
 .publicidad-title{
   font-family:'Montserrat';
   font-size:2em;
@@ -345,14 +350,12 @@ body{
 
 <body>
 
-<!-- ========= INFO SUPERIOR ========= -->
 <div class="top-info">
   <div class="clima-line" id="clima">Cargando clima...</div>
   <div class="hora-line" id="hora"></div>
   <div class="hora-line" id="fecha"></div>
 </div>
 
-<!-- ========= RADIO PRINCIPAL ========= -->
 <div class="radio-box">
 
   <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
@@ -383,7 +386,7 @@ body{
   </a>
 </div>
 
-<!-- ========= WIDGET YOUTUBE CORREGIDO ========= -->
+<!-- ========== WIDGET YOUTUBE ========== -->
 <div class="videos-widget">
 
   <a href="https://youtube.com/@elcanaldelasestrellasok"
@@ -426,7 +429,6 @@ body{
 
 </div>
 
-<!-- ========= PUBLICIDADES ========= -->
 <h2 class="publicidad-title">ESPACIO PUBLICITARIO</h2>
 
 <div class="public-box">
@@ -450,7 +452,6 @@ body{
   </a>
 </div>
 
-<!-- ===== PUBLICIDAD MMG ===== -->
 <div class="public-box">
   <img src="https://iili.io/fHuRH6F.md.jpg"
        style="width:100%;border-radius:15px;margin-bottom:15px;">
@@ -472,7 +473,6 @@ body{
   </a>
 </div>
 
-<!-- ===== PUBLICITAR EN RADIO IMAGEN ===== -->
 <div class="publicitar-box">
   <h2 class="publicitar-title">
     PUBLICITÁ EN
@@ -490,7 +490,6 @@ body{
   </a>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <a href="https://ciborg347.onrender.com" target="_blank" class="footer-link">
   <p class="footer">
     Creado y diseñado por<br>
@@ -503,10 +502,9 @@ body{
 </a>
 
 <!-- ===============================
-        SCRIPTS COMPLETOS
+         SCRIPTS COMPLETOS
 =============================== -->
 <script>
-/* ===== PLAYER ===== */
 function abrirPlayer(){
   document.getElementById("playerBox").style.display="block";
   document.getElementById("playButton").style.display="none";
@@ -518,7 +516,6 @@ function cerrarPlayer(){
     document.getElementById("radioIframe").src;
 }
 
-/* ===== OYENTES ===== */
 let oy = Math.floor(Math.random()*200)+420;
 function moverOy(){
   oy += Math.floor(Math.random()*7)-3;
@@ -531,7 +528,6 @@ function moverOy(){
 setInterval(moverOy, 1800);
 moverOy();
 
-/* ===== HORA Y FECHA ===== */
 function actHora(){
   let n = new Date();
   document.getElementById("hora").textContent =
@@ -542,7 +538,6 @@ function actHora(){
 setInterval(actHora, 1000);
 actHora();
 
-/* ===== CLIMA ===== */
 async function cargarClima(){
   try{
     let ip = await fetch("https://ipapi.co/json/").then(r=>r.json());
@@ -573,7 +568,6 @@ async function cargarClima(){
 }
 cargarClima();
 
-/* ===== WIDGET YOUTUBE ===== */
 document.querySelectorAll('.videos-widget .thumbnails img').forEach(el=>{
   el.addEventListener('click', ()=>{
 
