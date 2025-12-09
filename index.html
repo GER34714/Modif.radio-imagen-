@@ -154,11 +154,26 @@ body{
 }
 @keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 
-.play-btn{
-  margin-top:20px;background:linear-gradient(135deg,#00ffff,#ff0080);
-  padding:15px 50px;border:none;border-radius:50px;
-  font-size:1.3em;color:#000;font-weight:600;
+/* NUEVO BOTÓN STREAM DIRECTO */
+.stream-btn{
+  display:inline-block;
+  margin-top:20px;
+  background:linear-gradient(135deg,#00ffff,#00aaff);
+  padding:14px 38px;
+  border:none;
+  border-radius:30px;
+  font-size:1.2em;
+  font-weight:600;
+  color:#000;
+  cursor:pointer;
+  box-shadow:0 0 15px #00ffff;
+  transition:.2s;
 }
+.stream-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 22px #00ffff;
+}
+
 .player-box{display:none;margin-top:25px}
 
 .player-container{
@@ -261,7 +276,7 @@ body{
 }
 .publicitar-btn:hover{background:#00ffff;color:#000;box-shadow:0 0 25px #00ffff}
 
-/* NUEVO BOTÓN PUBLICITA EN RADIO IMAGEN */
+/* NUEVO BOTÓN PUBLICITAR RADIO */
 .publicitar-radio{
   display:inline-block;
   background:linear-gradient(135deg,#ff00ff,#b300ff);
@@ -330,15 +345,15 @@ body{
 
   <p class="radio-sub">En vivo 24 hs – Música, difusión y buena vibra 🎵</p>
 
-  <button class="play-btn" id="playButton" onclick="abrirPlayer()">▶️ Escuchar en vivo</button>
+  <!-- 🔥 BOTÓN NUEVO (STREAM DIRECTO) -->
+  <button class="stream-btn" onclick="document.getElementById('streamPlayer').play()">
+    ▶️ Escuchar Radio Imagen
+  </button>
 
-  <div class="player-box" id="playerBox">
-    <div class="player-container">
-      <iframe id="radioIframe" src="https://zeno.fm/player/radio-imagen/"></iframe>
-    </div>
-    <button class="close-btn" onclick="cerrarPlayer()">❌ Cerrar</button>
-  </div>
+  <!-- AUDIO STREAM -->
+  <audio id="streamPlayer" src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0dGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA" preload="none"></audio>
 
+  
   <a class="share-btn"
      href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
      🔗 Compartir Radio Imagen
@@ -425,20 +440,21 @@ body{
   </p>
 </a>
 
+
 <!-- ===============================
             SCRIPTS ORIGINALES
 ================================ -->
 
 <script>
 
-/* PLAYER */
+/* PLAYER — YA NO SE USA EL BOTÓN VIEJO PERO LO MANTENGO POR SI LO REACTIVÁS */
 function abrirPlayer(){
   document.getElementById("playerBox").style.display="block";
-  document.getElementById("playButton").style.display="none";
+  document.getElementById("playButton")?.style.display="none";
 }
 function cerrarPlayer(){
   document.getElementById("playerBox").style.display="none";
-  document.getElementById("playButton").style.display="inline-block";
+  document.getElementById("playButton")?.style.display="inline-block";
   document.getElementById("radioIframe").src =
     document.getElementById("radioIframe").src;
 }
