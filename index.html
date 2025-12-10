@@ -34,12 +34,12 @@
   }
 </script>
 
-<link rel="icon" type="image/png" href="https://iili.io/KZ3YpR4.md.png">
-<link rel="shortcut icon" href="https://iili.io/KZ3YpR4.md.png">
+<link rel="icon" type="image/png" href="https://iili.io/fRtTONa.png">
+<link rel="shortcut icon" href="https://iili.io/fRtTONa.png">
 
 <meta property="og:title" content="Radio Imagen™ | En Vivo 24hs">
 <meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música en vivo, difusión y buena vibra.">
-<meta property="og:image" content="https://iili.io/KZ3YpR4.md.png">
+<meta property="og:image" content="https://iili.io/fRtTONa.png">
 <meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght:300;400;600&family=Montserrat:wght:400;600;700&display=swap" rel="stylesheet">
@@ -74,7 +74,6 @@
   cursor:pointer;
   box-shadow:0 0 15px #00ffff;
 }
-#installBanner button:hover{ transform:scale(1.05); }
 
 /* ----------- TU CSS ORIGINAL COMPLETO ----------- */
 
@@ -145,8 +144,13 @@ body{
   box-shadow:0 0 25px #00ffff;
 }
 
-.radio-logo{ width:180px;margin:15px auto 0;display:block; }
+.radio-logo{
+  width:180px;
+  margin:15px auto 0;
+  display:block;
+}
 
+/* EN VIVO */
 .en-vivo{
   display:inline-flex;align-items:center;gap:6px;
   background:rgba(255,0,0,.2);
@@ -158,7 +162,6 @@ body{
   width:10px;height:10px;border-radius:50%;background:#ff0033;
   animation:pulse 1.2s infinite;
 }
-@keyframes pulse{0%{transform:scale(.9);opacity:.6}50%{transform:scale(1.3);opacity:1}100%{transform:scale(.9);opacity:.6}}
 
 .marquee-container{overflow:hidden;width:100%;margin-top:10px}
 .marquee{
@@ -167,9 +170,8 @@ body{
   text-shadow:0 0 10px #00ffff;
   animation:scroll 14s linear infinite;
 }
-@keyframes scroll{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
 
-/* BOTÓN PLAY / PAUSE NUEVO */
+/* BOTÓN PLAY / PAUSE */
 .stream-btn{
   display:inline-block;
   margin-top:20px;
@@ -182,36 +184,6 @@ body{
   color:#000;
   cursor:pointer;
   box-shadow:0 0 15px #00ffff;
-  transition:.2s;
-}
-.stream-btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 22px #00ffff;
-}
-
-.player-box{display:none;margin-top:25px}
-
-.player-container{
-  width:120px;height:100px;margin:auto;
-  overflow:hidden;border-radius:20px;
-  box-shadow:0 0 15px #00ffff;
-}
-.player-container iframe{
-  width:100%;height:300px;transform:translateY(-200px);border:none;
-}
-
-.share-btn{
-  margin-top:20px;background:linear-gradient(135deg,#00ffff,#005eff);
-  padding:12px 30px;border:none;border-radius:40px;color:#000;
-  font-size:1.1em;font-weight:600;text-decoration:none;display:inline-block;
-}
-
-.section-title{
-  font-family:'Montserrat';
-  font-size:2.1em;
-  color:#00ffff;
-  text-shadow:0 0 15px #00ffff;
-  margin-top:45px;margin-bottom:20px;
 }
 
 /* VIDEO WIDGET */
@@ -252,11 +224,6 @@ body{
 .thumbnails img:hover{transform:scale(1.05);border-color:#00ffff}
 .thumbnails img.selected{border-color:#ff0066;box-shadow:0 0 15px #ff0066}
 
-@media(max-width:600px){
-  .video-main{max-width:100%}
-  .thumbnails img{width:46%;height:auto}
-}
-
 /* PUBLICIDAD */
 .publicidad-title{
   font-family:'Montserrat';
@@ -274,26 +241,6 @@ body{
   box-shadow:0 0 15px #00ffff;
 }
 
-.public-box img{
-  width:100%;
-  border-radius:12px;
-  margin-bottom:12px;
-}
-
-/* BOTÓN PUBLICITAR */
-.publicitar-btn{
-  display:inline-block;margin-top:20px;
-  background:rgba(0,0,0,.6);
-  padding:14px 35px;border-radius:35px;
-  font-size:1.2em;
-  font-weight:700;
-  color:#00ffff;border:2px solid #00ffff;
-  text-decoration:none;
-  box-shadow:0 0 15px #00ffff;
-  transition:.25s;
-}
-.publicitar-btn:hover{background:#00ffff;color:#000;box-shadow:0 0 25px #00ffff}
-
 /* BOTÓN PUBLICITAR RADIO */
 .publicitar-radio{
   display:inline-block;
@@ -307,10 +254,6 @@ body{
   text-decoration:none;
   box-shadow:0 0 20px #ff00ff;
   transition:.25s;
-}
-.publicitar-radio:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 28px #ff00ff;
 }
 
 /* FOOTER */
@@ -358,7 +301,8 @@ body{
 
   <h2 class="radio-title"><span class="neon-pulse">Radio Imagen™</span></h2>
 
-  <img src="https://iili.io/KZ3YpR4.md.png" class="radio-logo">
+  <!-- NUEVA IMAGEN DE HEADER -->
+  <img src="https://iili.io/fR6g61S.png" class="radio-logo">
 
   <div class="en-vivo"><div class="dot"></div> EN VIVO</div>
 
@@ -409,9 +353,8 @@ body{
   <div class="video-main">
     <iframe id="mainVideo"
       src="https://www.youtube.com/embed/2flmM26Yf6g"
-      disablepictureinpicture
       playsinline webkit-playsinline
-      allow="encrypted-media"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen>
     </iframe>
   </div>
@@ -463,10 +406,7 @@ body{
   </p>
 </a>
 
-<!-- ===============================
-            SCRIPTS
-================================ -->
-
+<!-- SCRIPTS -->
 <script>
 
 /* PLAY / PAUSE */
@@ -540,7 +480,8 @@ document.querySelectorAll('.thumbnails img').forEach(el=>{
     const iframe = document.getElementById('mainVideo');
 
     iframe.src = 'https://www.youtube.com/embed/' + id;
-    iframe.removeAttribute("allowfullscreen");
+    iframe.setAttribute("allowfullscreen","");
+    iframe.setAttribute("allow","accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
 
     document.querySelectorAll('.thumbnails img')
       .forEach(x => x.classList.remove('selected'));
