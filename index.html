@@ -9,7 +9,6 @@
 <meta property="og:description" content="Sintonizá RADIO IMAGEN™ – música en vivo, difusión y buena vibra.">
 <meta property="og:image" content="https://iili.io/fRmbI3l.png">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://radioimagen.onrender.com">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,7 +212,6 @@ body{
   margin-top:20px;background:linear-gradient(135deg,#00ffff,#005eff);
   padding:12px 30px;border:none;border-radius:40px;color:#000;
   font-size:1.1em;font-weight:600;text-decoration:none;display:inline-block;
-  cursor:pointer;
 }
 
 .section-title{
@@ -384,16 +382,17 @@ body{
     ▶️ Escuchar Radio Imagen
   </button>
 
-  <!-- AUDIO -->
+  <!-- AUDIO (MODIFICADO: SIN TOKEN ?zt= + preload none + crossorigin) -->
   <audio id="streamPlayer"
-    src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0bGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA"
-    preload="auto">
+    src="https://stream-175.zeno.fm/rer8uxdn6f0uv"
+    preload="none"
+    crossorigin="anonymous">
   </audio>
 
-  <!-- COMPARTIR (ARREGLADO: Web Share + fallback wa.me, sin whatsapp:// que se abre/cierra) -->
-  <button class="share-btn" id="shareBtn" type="button">
-    🔗 Compartir Radio Imagen
-  </button>
+  <a class="share-btn"
+     href="whatsapp://send?text=📻 Escuchá RADIO IMAGEN en vivo 24hs: https://radioimagen.onrender.com">
+     🔗 Compartir Radio Imagen
+  </a>
 
 </div>
 
@@ -479,7 +478,7 @@ body{
 
 <script>
 
-/* PLAY / PAUSE (CORREGIDO: SIN load() NI AUTO-RECONNECT AGRESIVO) */
+/* PLAY / PAUSE (MODIFICADO: SIN TOKEN, preload none, y reset en error) */
 function toggleRadio() {
   const audio = document.getElementById("streamPlayer");
   const btn = document.getElementById("streamBtn");
@@ -497,43 +496,10 @@ function toggleRadio() {
   }
 }
 
-/* COMPARTIR (ARREGLADO) */
-(function setupShare(){
-  const SHARE_URL = "https://radioimagen.onrender.com";
-  const SHARE_TEXT = "📻 Escuchá RADIO IMAGEN en vivo 24hs:";
-  const btn = document.getElementById("shareBtn");
-  if (!btn) return;
-
-  btn.addEventListener("click", async () => {
-    const fullText = `${SHARE_TEXT} ${SHARE_URL}`;
-
-    try{
-      if (navigator.share) {
-        await navigator.share({
-          title: "Radio Imagen™",
-          text: fullText,
-          url: SHARE_URL
-        });
-        return;
-      }
-    }catch(e){}
-
-    // Fallback universal (no se abre/cierra): wa.me
-    const waUrl = "https://wa.me/?text=" + encodeURIComponent(fullText);
-
-    const w = window.open(waUrl, "_blank", "noopener,noreferrer");
-    if (w) return;
-
-    // Si bloquean popups, copiamos el texto
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(fullText)
-        .then(()=> alert("Link copiado ✅ Pegalo donde quieras"))
-        .catch(()=> prompt("Copiá el link:", fullText));
-    } else {
-      prompt("Copiá el link:", fullText);
-    }
-  });
-})();
+/* RESET DEL BOTÓN SI EL STREAM FALLA (sin auto-reconnect agresivo) */
+document.getElementById("streamPlayer").addEventListener("error", () => {
+  document.getElementById("streamBtn").textContent = "▶️ Escuchar Radio Imagen";
+});
 
 /* BOTÓN MANUAL */
 function instalarAppManual() {
