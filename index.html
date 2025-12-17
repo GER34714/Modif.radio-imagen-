@@ -385,7 +385,7 @@ body{
   <!-- AUDIO -->
   <audio id="streamPlayer"
     src="https://stream-175.zeno.fm/rer8uxdn6f0uv?zt=eyJhbGciOiJIUzI1NiJ9.eyJzdHJlYW0iOiJyZXI4dXhkbjZmMHV2IiwiaG9zdCI6InN0cmVhbS0xNzUuemVuby5mbSIsInJ0bGwiOjUsImp0aSI6Ik0zVUo3aTlLVHFPRkRGcFJTN3pSanciLCJpYXQiOjE3NjUzMDA1NzYsImV4cCI6MTc2NTMwMDYzNn0.z1o8lDRpj-zVbiu4wU9qdxNLrMqmCxyO3XB8rvbtDjA"
-    preload="none">
+    preload="auto">
   </audio>
 
   <a class="share-btn"
@@ -477,19 +477,100 @@ body{
 
 <script>
 
-/* PLAY / PAUSE */
+/* PLAY / PAUSE + MEJORA INSTANTÁNEA + AUTO-RECONNECT */
+let shouldPlay = false;
+let reconnectTimer = null;
+let reconnectAttempts = 0;
+
 function toggleRadio() {
   const audio = document.getElementById("streamPlayer");
   const btn = document.getElementById("streamBtn");
 
   if (audio.paused) {
-    audio.play();
-    btn.textContent = "⏸️ Pausar Radio Imagen";
+    shouldPlay = true;
+
+    // Feedback instantáneo (aunque esté conectando/buffer)
+    btn.textContent = "⏳ Conectando...";
+    try { audio.load(); } catch(e){}
+
+    audio.play().then(()=>{
+      btn.textContent = "⏸️ Pausar Radio Imagen";
+      reconnectAttempts = 0;
+    }).catch(()=>{
+      // Si el navegador bloquea o falla, dejamos texto claro
+      btn.textContent = "▶️ Escuchar Radio Imagen";
+    });
+
   } else {
+    shouldPlay = false;
+    clearTimeout(reconnectTimer);
+    reconnectTimer = null;
+    reconnectAttempts = 0;
+
     audio.pause();
     btn.textContent = "▶️ Escuchar Radio Imagen";
   }
 }
+
+// Warm-up: apenas el usuario toca la pantalla (cualquier lado), empezamos a “cargar” el stream
+(function warmupStream(){
+  const audio = document.getElementById("streamPlayer");
+  const warm = () => { try { audio.load(); } catch(e){} };
+  window.addEventListener("touchstart", warm, { once:true, passive:true });
+  window.addEventListener("mousedown", warm, { once:true });
+  window.addEventListener("pointerdown", warm, { once:true });
+})();
+
+function scheduleReconnect(reason){
+  const audio = document.getElementById("streamPlayer");
+  const btn = document.getElementById("streamBtn");
+
+  if (!shouldPlay) return;
+
+  clearTimeout(reconnectTimer);
+
+  // Backoff suave para no entrar en loop
+  const delay = Math.min(1500 + (reconnectAttempts * 700), 8000);
+
+  reconnectTimer = setTimeout(() => {
+    reconnectAttempts++;
+    btn.textContent = "⏳ Reconectando...";
+
+    try { audio.load(); } catch(e){}
+
+    audio.play().then(()=>{
+      reconnectAttempts = 0;
+      btn.textContent = "⏸️ Pausar Radio Imagen";
+    }).catch(()=>{
+      scheduleReconnect("play-catch");
+    });
+  }, delay);
+}
+
+// Eventos típicos de micro-cortes/buffer
+(function attachAutoReconnect(){
+  const audio = document.getElementById("streamPlayer");
+  const btn = document.getElementById("streamBtn");
+
+  audio.addEventListener("waiting", () => {
+    if (shouldPlay) {
+      btn.textContent = "⏳ Buffering...";
+      scheduleReconnect("waiting");
+    }
+  });
+
+  audio.addEventListener("stalled", () => scheduleReconnect("stalled"));
+  audio.addEventListener("ended", () => scheduleReconnect("ended"));
+  audio.addEventListener("error", () => scheduleReconnect("error"));
+
+  audio.addEventListener("playing", () => {
+    if (shouldPlay) btn.textContent = "⏸️ Pausar Radio Imagen";
+  });
+
+  audio.addEventListener("pause", () => {
+    if (!shouldPlay) btn.textContent = "▶️ Escuchar Radio Imagen";
+  });
+})();
 
 /* BOTÓN MANUAL */
 function instalarAppManual() {
