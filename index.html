@@ -211,16 +211,9 @@ body{
 }
 
 .share-btn{
-  margin-top:20px;
-  background:linear-gradient(135deg,#00ffff,#005eff);
-  padding:12px 30px;
-  border:none;
-  border-radius:40px;
-  color:#000;
-  font-size:1.1em;
-  font-weight:600;
-  text-decoration:none;
-  display:inline-block;
+  margin-top:20px;background:linear-gradient(135deg,#00ffff,#005eff);
+  padding:12px 30px;border:none;border-radius:40px;color:#000;
+  font-size:1.1em;font-weight:600;text-decoration:none;display:inline-block;
   cursor:pointer;
 }
 
@@ -392,14 +385,14 @@ body{
     ▶️ Escuchar Radio Imagen
   </button>
 
-  <!-- AUDIO -->
+  <!-- AUDIO (MODIFICADO: SIN TOKEN ?zt= + preload none + crossorigin) -->
   <audio id="streamPlayer"
     src="https://stream-175.zeno.fm/rer8uxdn6f0uv"
     preload="none"
     crossorigin="anonymous">
   </audio>
 
-  <!-- COMPARTIR (SOLO SHARE NATIVO + FALLBACK A WHATSAPP, SIN COPIAR LINK) -->
+  <!-- COMPARTIR (SIN POPUPS, SIN WHATSAPP, SIN COPIAR) -->
   <button class="share-btn" type="button" onclick="shareRadio()">
     🔗 Compartir Radio Imagen
   </button>
@@ -488,7 +481,7 @@ body{
 
 <script>
 
-/* PLAY / PAUSE */
+/* PLAY / PAUSE (MODIFICADO: SIN TOKEN, preload none, y reset en error) */
 function toggleRadio() {
   const audio = document.getElementById("streamPlayer");
   const btn = document.getElementById("streamBtn");
@@ -506,29 +499,30 @@ function toggleRadio() {
   }
 }
 
-/* RESET DEL BOTÓN SI EL STREAM FALLA */
+/* RESET DEL BOTÓN SI EL STREAM FALLA (sin auto-reconnect agresivo) */
 document.getElementById("streamPlayer").addEventListener("error", () => {
   document.getElementById("streamBtn").textContent = "▶️ Escuchar Radio Imagen";
 });
 
-/* COMPARTIR (solo share nativo; si no existe, abre WhatsApp con el texto) */
+/* COMPARTIR (SOLO SHARE NATIVO; SIN POPUPS; SIN WHATSAPP; SIN COPIAR) */
 async function shareRadio() {
+  if (!navigator.share) {
+    alert("El botón compartir funciona desde el celular 📱");
+    return;
+  }
+
   const url = "https://radioimagen.onrender.com";
   const text = "📻 Escuchá RADIO IMAGEN en vivo 24hs: " + url;
 
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "Radio Imagen™ | En Vivo 24hs",
-        text
-      });
-      return;
-    } catch (e) {
-      // si cancelan o falla, cae a WhatsApp
-    }
+  try {
+    await navigator.share({
+      title: "Radio Imagen™ | En Vivo 24hs",
+      text: text,
+      url: url
+    });
+  } catch (e) {
+    // cancelado por el usuario -> no hacemos nada
   }
-
-  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
 }
 
 /* BOTÓN MANUAL */
@@ -580,7 +574,7 @@ async function cargarClima(){
 }
 cargarClima();
 
-/* CAMBIO DE VIDEO (CORREGIDO: NO ROMPE FULLSCREEN) */
+/* CAMBIO DE VIDEO */
 document.querySelectorAll('.thumbnails img').forEach(el=>{
   el.addEventListener('click', ()=>{
 
