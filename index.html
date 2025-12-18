@@ -392,14 +392,14 @@ body{
     ▶️ Escuchar Radio Imagen
   </button>
 
-  <!-- AUDIO (MODIFICADO: SIN TOKEN ?zt= + preload none + crossorigin) -->
+  <!-- AUDIO -->
   <audio id="streamPlayer"
     src="https://stream-175.zeno.fm/rer8uxdn6f0uv"
     preload="none"
     crossorigin="anonymous">
   </audio>
 
-  <!-- COMPARTIR (CORREGIDO: share nativo + fallback WhatsApp universal + copiar link) -->
+  <!-- COMPARTIR (SOLO SHARE NATIVO + FALLBACK A WHATSAPP, SIN COPIAR LINK) -->
   <button class="share-btn" type="button" onclick="shareRadio()">
     🔗 Compartir Radio Imagen
   </button>
@@ -488,7 +488,7 @@ body{
 
 <script>
 
-/* PLAY / PAUSE (MODIFICADO: SIN TOKEN, preload none, y reset en error) */
+/* PLAY / PAUSE */
 function toggleRadio() {
   const audio = document.getElementById("streamPlayer");
   const btn = document.getElementById("streamBtn");
@@ -506,43 +506,29 @@ function toggleRadio() {
   }
 }
 
-/* RESET DEL BOTÓN SI EL STREAM FALLA (sin auto-reconnect agresivo) */
+/* RESET DEL BOTÓN SI EL STREAM FALLA */
 document.getElementById("streamPlayer").addEventListener("error", () => {
   document.getElementById("streamBtn").textContent = "▶️ Escuchar Radio Imagen";
 });
 
-/* COMPARTIR (PRO) */
+/* COMPARTIR (solo share nativo; si no existe, abre WhatsApp con el texto) */
 async function shareRadio() {
   const url = "https://radioimagen.onrender.com";
   const text = "📻 Escuchá RADIO IMAGEN en vivo 24hs: " + url;
 
-  // 1) Share nativo (Android/iOS)
   if (navigator.share) {
     try {
       await navigator.share({
         title: "Radio Imagen™ | En Vivo 24hs",
-        text,
-        url
+        text
       });
       return;
     } catch (e) {
-      // si cancelan o falla, seguimos a fallback
+      // si cancelan o falla, cae a WhatsApp
     }
   }
 
-  // 2) WhatsApp universal (celu y PC)
-  const waUrl = "https://wa.me/?text=" + encodeURIComponent(text);
-  const opened = window.open(waUrl, "_blank");
-
-  // 3) Si el navegador bloquea la ventana, copiamos link
-  if (!opened) {
-    try {
-      await navigator.clipboard.writeText(url);
-      alert("Link copiado ✅ Pegalo donde quieras:\n" + url);
-    } catch (e) {
-      prompt("Copiá el link:", url);
-    }
-  }
+  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
 }
 
 /* BOTÓN MANUAL */
@@ -594,7 +580,7 @@ async function cargarClima(){
 }
 cargarClima();
 
-/* CAMBIO DE VIDEO */
+/* CAMBIO DE VIDEO (CORREGIDO: NO ROMPE FULLSCREEN) */
 document.querySelectorAll('.thumbnails img').forEach(el=>{
   el.addEventListener('click', ()=>{
 
@@ -602,7 +588,6 @@ document.querySelectorAll('.thumbnails img').forEach(el=>{
     const iframe = document.getElementById('mainVideo');
 
     iframe.src = 'https://www.youtube.com/embed/' + id;
-    iframe.removeAttribute("allowfullscreen");
 
     document.querySelectorAll('.thumbnails img')
       .forEach(x => x.classList.remove('selected'));
